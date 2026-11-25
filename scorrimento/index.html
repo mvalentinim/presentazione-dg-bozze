@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TPER, i dati come asset affidabile</title>
+<meta name="description" content="Il progetto di data governance TPER sull'area vendite, raccontato in otto domande con le prove prese dalla piattaforma.">
+<meta name="color-scheme" content="light">
+<style>
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/poppins-400-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/poppins-400-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/poppins-500-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/poppins-500-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/poppins-600-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/poppins-600-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/poppins-900-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/poppins-900-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Caveat Brush";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/caveat-brush-400-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Caveat Brush";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/caveat-brush-400-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --board:#ffffff;
+  --board-2:#f2f3f4;
+  --ink:#1b1b1d;         /* pennarello nero */
+  --ink-2:#44464c;
+  --ink-3:#62656d;
+  --red:#ef343c;         /* rosso TPER, per il tratto */
+  --red-ink:#c61f27;     /* lo stesso rosso, più scuro, per il testo piccolo */
+  --sans:"Poppins",system-ui,sans-serif;
+  --hand:"Caveat Brush","Comic Sans MS",cursive;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --wrap:74rem;
+  --pad:2rem;        /* margine laterale */
+  --railc:2.3rem;    /* dal margine al centro della linea */
+  --gut:6.8rem;      /* canale della linea: tutto il contenuto sta alla sua destra */
+}
+*{box-sizing:border-box}
+html{font-size:clamp(16px,.55vw + 10px,21px);scroll-behavior:smooth;scroll-padding-top:5rem;color-scheme:light;scrollbar-color:var(--ink-3) var(--board-2)}
+body{margin:0;background:var(--board);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.6;font-feature-settings:"tnum" 1;-webkit-font-smoothing:antialiased}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:3px solid var(--red);outline-offset:4px;border-radius:4px}
+a{color:inherit;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:.22em}
+a:hover{color:var(--red-ink)}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.08;letter-spacing:-.01em;word-spacing:.14em;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-thumb{background:var(--ink-3);border-radius:6px;border:3px solid var(--board-2)}
+::-webkit-scrollbar-track{background:var(--board-2)}
+
+/* ----- il tratto di pennarello ----- */
+svg.mk{overflow:visible;fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:url(#rough)}
+svg.mk.red,svg.mk .red{stroke:var(--red)}
+svg.mk.stretch path{vector-effect:non-scaling-stroke}
+.hand{font-family:var(--hand);font-weight:400;line-height:1.05;letter-spacing:.005em}
+/* il segno si traccia quando entra nello schermo; senza script resta visibile */
+.draw{clip-path:inset(-40% -4% -40% -4%);transition:clip-path 1.25s var(--ease)}
+.wait .draw{clip-path:inset(-40% 104% -40% -4%)}
+.pop{transition:transform .7s var(--ease) .25s,opacity .5s var(--ease) .25s}
+.wait .pop{transform:scale(.6) rotate(-8deg);opacity:0}
+
+.circled{position:relative;white-space:nowrap;z-index:0;padding:.02em .06em}
+.circled svg{position:absolute;left:-5%;top:-3%;width:110%;height:108%;z-index:-1}
+h1 .circled svg,.end h2 .circled svg{stroke-width:9}
+.under{position:relative;display:inline-block}
+.under svg{position:absolute;left:-1%;bottom:-.34em;width:102%;height:.5em}
+
+/* ----- testata ----- */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4 C120 2 260 6 420 3.5 S760 5.5 998 4' fill='none' stroke='%231b1b1d' stroke-opacity='.28' stroke-width='2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") left bottom/100% 6px no-repeat}
+.top .in{max-width:var(--wrap);margin:0 auto;padding:.55rem var(--pad);display:flex;align-items:center;gap:1.2rem}
+.top .logo{height:2.3rem;width:auto}
+.top .ttl{font-weight:600;font-size:.875rem;color:var(--ink-2);margin-right:auto;line-height:1.25;white-space:nowrap}
+.top nav{display:flex;gap:1.05rem}
+.top nav a{font-weight:600;font-size:.875rem;white-space:nowrap;text-decoration:none;padding:.35rem 0;position:relative;color:var(--ink-2)}
+.top nav a:hover,.top nav a.on{color:var(--ink)}
+.top nav a.on::after{content:"";position:absolute;left:-3px;right:-3px;bottom:-.25rem;height:8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4 C120 2 260 6 420 3.5 S760 5.5 998 4' fill='none' stroke='%23ef343c' stroke-width='4' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+main{position:relative}
+main .wrap{padding-left:calc(var(--pad) + var(--gut))}
+section{position:relative}
+.grey{background:var(--board-2)}
+
+/* ----- la linea: una sola, dall'apertura al capolinea; si allunga mentre si scorre ----- */
+.spinebox{position:absolute;z-index:1;left:calc(max((100% - var(--wrap)) / 2, 0px) + var(--pad) + var(--railc));width:2rem;transform:translateX(-50%);overflow:hidden;pointer-events:none}
+.spinebox svg{position:absolute;left:.3rem;top:0;width:1.4rem}
+.bend{position:absolute;width:2rem;height:2rem;left:calc(var(--pad) + var(--railc) - .3rem)}
+.hero .bend{bottom:.1rem}
+.end .bend{bottom:1.5rem}
+.cmark{position:absolute;left:calc(var(--pad) + var(--railc));top:6.1rem;width:2.4rem;height:1.2rem;transform:translate(-50%,-50%);z-index:2}
+.sub .cmark{top:3.2rem}
+
+/* ----- apertura ----- */
+.hero{padding:2.2rem 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);column-gap:3rem;row-gap:.6rem;align-items:end;position:relative}
+.hero h1{grid-column:1 / -1;font-size:clamp(2.1rem,4.7vw,5rem);line-height:1.13}
+.hero .lead{margin-top:0;font-size:1.125rem;max-width:36rem;color:var(--ink-2)}
+.hero .lead b{color:var(--ink);font-weight:600}
+.go{display:inline-flex;align-items:center;gap:.9rem;margin:1.4rem 0 3.1rem;position:relative;padding:.85rem 1.6rem;font-weight:600;font-size:1.125rem;text-decoration:none;z-index:0}
+.go svg.box{position:absolute;inset:0;width:100%;height:100%;z-index:-1;stroke-width:4}
+.go svg.arr{width:1.5rem;height:1.5rem;stroke-width:4;transition:transform .3s var(--ease)}
+.go:hover{color:var(--red-ink)}
+.go:hover svg.arr{transform:translateY(4px)}
+.scene{align-self:end;display:flex;flex-direction:column;gap:.9rem;min-width:0}
+.minimap{position:relative;padding:0 7.5rem 0 0;max-width:27rem}
+.minimap svg{display:block;width:100%;height:auto}
+.minimap text{font-family:var(--hand);font-size:25px;fill:var(--ink);stroke:none;text-anchor:middle}
+.minimap a:hover text,.minimap a:focus-visible text{fill:var(--red-ink)}
+.minimap a .dot{fill:#fff;transition:fill .2s var(--ease)}
+.minimap a:hover .dot{fill:#fde4e5}
+.minimap .lb{position:absolute;font-size:1.5rem;color:var(--red-ink);white-space:nowrap}
+.minimap .lb.a{left:0;bottom:-.6rem;transform:rotate(-4deg)}
+.busbox{position:relative;padding-right:7rem}
+.palina{position:absolute;right:0;bottom:1.5rem;width:6rem;display:grid;justify-items:center}
+.palina .num{width:6rem;height:6rem;font-size:3.6rem}
+.palina .num svg.tk{inset:20% 16% 22% 22%;width:62%;height:58%;stroke-width:8}
+.palina .lb{font-size:1.7rem;color:var(--red-ink);margin-top:.1rem;transform:rotate(-3deg)}
+.palina svg.pole{width:1.2rem;height:9.5rem;stroke-width:6;margin-top:.2rem}
+.busbox svg.bus{display:block;width:100%;height:auto}
+.bus .wh{fill:var(--ink)}
+.bus .hub{fill:var(--board);stroke:var(--board)}
+.busbox .tag{position:absolute;right:38%;top:-1.2rem;font-size:1.75rem;color:var(--red-ink);transform:rotate(-4deg)}
+.busbox svg.tagarr{position:absolute;right:52%;top:.9rem;width:3.4rem;height:3.4rem;stroke-width:4}
+.road{position:absolute;left:calc(var(--pad) + var(--railc) + 1.6rem);bottom:1.1rem;height:1.4rem;width:calc(100% - var(--pad) - var(--railc) - 1.6rem)}
+
+/* ----- titoli di capitolo ----- */
+.chap{padding-top:4.5rem;padding-bottom:1rem;position:relative}
+.chap h2,.sub h2{font-size:clamp(2rem,3.4vw,3.2rem)}
+.intro{margin-top:1.3rem;font-size:1.0625rem;color:var(--ink-2);max-width:42rem}
+.sub{padding-top:1.6rem;position:relative}
+
+/* ----- una fermata, una domanda ----- */
+.stop{display:grid;grid-template-columns:4.6rem minmax(0,1fr) minmax(0,1.08fr);column-gap:2.2rem;padding:3.2rem 0 3.6rem;margin-left:calc(-1 * var(--gut))}
+.rail{position:relative;justify-self:center;width:4.6rem}
+.num{position:relative;z-index:2;width:4.6rem;height:4.6rem;display:grid;place-items:center;font-family:var(--hand);font-size:2.7rem;line-height:1;color:var(--ink);background:radial-gradient(circle,var(--bg,#fff) 62%,transparent 63%)}
+.grey .num{--bg:var(--board-2)}
+.num svg{position:absolute;inset:0;width:100%;height:100%;stroke-width:5}
+.num span{position:relative;transform:translateY(-.06em)}
+.stop .txt{position:sticky;top:5.2rem;align-self:start}
+.stop h3{font-size:clamp(1.55rem,2.35vw,2.2rem);margin-top:.55rem}
+.stop .ans{margin-top:1rem;font-weight:600;font-size:1.125rem;line-height:1.45;max-width:34rem}
+.who{margin:1.3rem 0 0;display:inline-grid;position:relative;padding:.6rem 1.1rem .65rem;z-index:0;max-width:34rem}
+.who svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;stroke-width:3.5}
+.who b{font-family:var(--hand);font-weight:400;font-size:1.5rem;color:var(--red-ink);line-height:1}
+.who span{font-size:.9375rem;font-weight:600;line-height:1.4;margin-top:.2rem}
+.stop .exp{margin-top:1.3rem;color:var(--ink-2);max-width:34rem}
+/* tre disposizioni delle prove, perché le fermate non siano tutte uguali */
+.stop.narrow .sheet{max-width:25rem}
+.stop.pair .sheet:first-of-type{width:88%}
+.stop.pair .sheet+.sheet{width:66%;margin:1.6rem 0 0 auto;z-index:1}
+.stop.pair .sheet+.sheet .shot{transform:rotate(2deg)}
+.stop.wide{row-gap:2.4rem}
+.stop.wide .txt{position:static;grid-column:2 / -1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);column-gap:2.2rem}
+.stop.wide .tr .exp{margin-top:.7rem}
+.stop.wide .proofs{grid-column:2 / -1;padding-top:0;display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);column-gap:2.4rem;align-items:start}
+.stop.wide .scrawl{grid-column:1 / -1}
+.stop.wide .sheet+.sheet{margin-top:3.4rem}
+.stop.wide .sheet+.sheet .shot{transform:rotate(2.2deg)}
+.stop .exp p+p{margin-top:.7rem}
+.stop .exp b{color:var(--ink);font-weight:600;padding-bottom:.12em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4 C120 2 260 6 420 3.5 S760 5.5 998 4' fill='none' stroke='%23ef343c' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") left bottom/100% .42em no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.docs{margin:1.4rem 0 0;padding:0;list-style:none;font-size:.9375rem;color:var(--ink-2);max-width:34rem}
+.docs li{padding-left:1.5rem;position:relative;margin-top:.3rem}
+.docs li::before{content:"";position:absolute;left:0;top:.45em;width:1rem;height:.6rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C7 3 13 8 18 4' fill='none' stroke='%23ef343c' stroke-width='3.5' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.docs .lbl{font-weight:600;color:var(--ink);padding-left:0;margin-bottom:.1rem}
+.docs .lbl::before{display:none}
+.docs .off{color:var(--ink-3)}
+
+.proofs{position:relative;padding-top:.8rem}
+.sheet{margin:0;position:relative}
+.sheet+.sheet{margin-top:2.2rem}
+.sheet .shot{display:block;position:relative;width:100%;max-width:calc(var(--nw,100%) + 1.5rem);padding:.75rem .75rem 2.7rem;background:var(--board);transition:transform .35s var(--ease)}
+.sheet .shot .pic{display:block;position:relative}
+.sheet .shot svg.fr{position:absolute;left:0;top:0;width:100%;height:100%;stroke-width:3.5}
+.sheet .shot svg.hl{position:absolute;stroke-width:4.5}
+.zcue{position:absolute;right:1.1rem;bottom:.85rem;display:flex;align-items:center;gap:.35rem;font-size:1.3rem;line-height:1.2;color:var(--ink)}
+.zcue svg{width:1.25rem;height:1.25rem;stroke-width:5.5}
+.sheet:nth-of-type(odd) .shot{transform:rotate(-.7deg)}
+.sheet:nth-of-type(even) .shot{transform:rotate(.6deg)}
+.sheet .shot:hover,.sheet .shot:focus-visible{transform:rotate(0) scale(1.012)}
+.sheet .shot img{width:100%;height:auto}
+.sheet figcaption{margin-top:.9rem;font-size:.9375rem;color:var(--ink-2);max-width:34rem;text-wrap:pretty}
+.sheet .tape{position:absolute;top:-.8rem;width:5.2rem;height:1.5rem;z-index:1}
+.scrawl{display:flex;align-items:flex-end;gap:.4rem;margin:0 0 .9rem 1rem;font-size:1.7rem;color:var(--red-ink);transform:rotate(-2deg);transform-origin:0 100%}
+.scrawl svg{flex:none;width:2.6rem;height:2.6rem;stroke-width:4;transform:translateY(.7rem)}
+.quote{position:relative;margin:0;padding:1.8rem 2rem;font-size:1.25rem;line-height:1.5;font-weight:500;z-index:0}
+.quote svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;stroke-width:4}
+.quote small{display:block;margin-top:.9rem;font-size:.9375rem;font-weight:400;color:var(--ink-2)}
+.missing{font-family:var(--hand);font-size:1.4rem;line-height:1.2;color:var(--red-ink);max-width:22rem}
+
+/* ----- il percorso: sette linee ----- */
+.lines{margin:2.4rem 0 0;padding-bottom:4rem}
+.lhead,.lrow{display:grid;grid-template-columns:15rem repeat(4,minmax(0,1fr));align-items:center}
+.lhead{font-weight:600;font-size:.9375rem;padding-bottom:.6rem;text-align:center}
+.lhead div{padding:0 .5rem;line-height:1.3}
+.lrow{min-height:3.5rem;position:relative}
+.lrow.v{margin:2.8rem 0 2.2rem}
+.lrow .nm{font-weight:600;line-height:1.25;padding-right:1rem}
+.lrow.v .nm{font-weight:900;font-size:1.125rem;word-spacing:.14em}
+.lrow .trk{grid-column:2 / -1;position:relative;height:3.5rem}
+.trk svg.ln{position:absolute;top:50%;height:1.2rem;transform:translateY(-50%)}
+.trk svg.nd{position:absolute;top:50%;width:1.7rem;height:1.7rem;transform:translate(-50%,-50%);stroke-width:5}
+svg.nd.full{fill:var(--ink)}
+svg.nd.full.red{fill:var(--red)}
+svg.nd.open{fill:var(--board)}
+.grey svg.nd.open{fill:var(--board-2)}
+.mst{display:none}
+.here{position:absolute;left:calc(62.5% + .9rem);top:-2.5rem;font-size:1.7rem;color:var(--red-ink);transform:rotate(-3deg);white-space:nowrap;display:flex;align-items:flex-end;gap:.3rem}
+.here svg{width:2.2rem;height:2.2rem;stroke-width:4;transform:translateY(.9rem) scaleX(-1);order:-1}
+.todo{position:absolute;left:75%;top:50%;transform:translate(-50%,55%) rotate(-2deg);font-size:1.4rem;color:var(--red-ink);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:.6rem 2.2rem;margin-top:1.6rem;font-size:.9375rem;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:.6rem}
+.legend svg{width:2.6rem;height:1rem}
+
+/* ----- il flusso: cinque tappe ----- */
+.flow{margin-top:2.6rem;position:relative}
+.frow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.ftrack{position:relative;height:4.4rem}
+.ftrack svg.ln{position:absolute;top:50%;height:1.4rem;transform:translateY(-50%)}
+.ftrack svg.fog{left:0;width:20%}
+.ftrack svg.lit{left:20%;width:80%}
+.ftrack svg.arrh{position:absolute;right:-.6rem;top:50%;width:2.2rem;height:2.2rem;transform:translateY(-50%);stroke-width:6}
+.ftrack .pin{position:absolute;top:50%;width:2.5rem;height:2.5rem;transform:translate(-50%,-50%)}
+.ftrack .pin svg{width:100%;height:100%;stroke-width:6;transition:transform .3s var(--ease)}
+.ftrack .pin:hover svg{transform:scale(1.15)}
+.st .mpin{display:none}
+.st{padding:.4rem 1.2rem 0 0}
+.st .nm{font-weight:900;font-size:1.35rem;letter-spacing:-.01em;word-spacing:.14em}
+.st .gl{font-family:var(--hand);font-size:1.6rem;line-height:1.05;color:var(--red-ink);margin-top:.2rem}
+.st p{font-size:.9375rem;color:var(--ink-2);margin-top:.5rem;line-height:1.5}
+.st a{display:inline-block;margin-top:.6rem;font-weight:600;font-size:.9375rem}
+.st.fogged .gl{color:var(--ink-2)}
+.along{margin-top:2rem;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));row-gap:.2rem}
+.along .lab{font-family:var(--hand);font-size:1.6rem;line-height:1.05;color:var(--ink-2);align-self:center;padding-right:1rem;transform:rotate(-2deg)}
+.along .br{grid-column:2 / -1;position:relative;padding:1.5rem 0 .2rem}
+.along .br svg.brace{position:absolute;left:0;top:0;width:100%;height:1.5rem;stroke-width:4}
+.along .br a{display:inline-flex;align-items:center;gap:.8rem;font-weight:600;font-size:1.0625rem;text-decoration:none}
+.along .br a:hover .t{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:.22em}
+.along .num{width:3rem;height:3rem;font-size:1.8rem;flex:none}
+
+/* ----- chi risponde: la tabella delle spunte ----- */
+.matrix{margin:2.2rem 0 0;width:100%;border-collapse:collapse}
+.matrix th,.matrix td{padding:.55rem .4rem;text-align:center;vertical-align:middle}
+.matrix thead th{font-weight:600;font-size:.875rem;line-height:1.3;vertical-align:top;color:var(--ink-2);width:9.5%}
+.matrix thead th:first-child{width:auto}
+.matrix thead a{display:grid;justify-items:center;gap:.35rem;text-decoration:none}
+.matrix thead .num{width:3rem;height:3rem;font-size:1.8rem}
+.matrix tbody th{text-align:left;font-weight:900;font-size:1.125rem;line-height:1.25;word-spacing:.14em;padding-left:0;padding-right:1rem}
+.matrix tbody th small{display:block;font-weight:400;word-spacing:normal;letter-spacing:0;font-size:.9375rem;line-height:1.4;color:var(--ink-2);margin-top:.15rem}
+.matrix tbody tr{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 8' preserveAspectRatio='none'%3E%3Cpath d='M2 4 C120 2 260 6 420 3.5 S760 5.5 998 4' fill='none' stroke='%231b1b1d' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") left top/100% 8px no-repeat}
+.matrix td svg{width:2.4rem;height:2.4rem;stroke-width:6}
+.matrix td .no{display:inline-block;width:1rem;height:.6rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 C7 3 13 8 18 4' fill='none' stroke='%231b1b1d' stroke-opacity='.28' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.sr{position:absolute;left:-999em}
+
+/* ----- capolinea ----- */
+.end{padding:5rem 0 0;overflow:hidden}
+.end .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:2.5rem;row-gap:.4rem;align-items:end;position:relative}
+.end h2{grid-column:1 / -1;font-size:clamp(2.1rem,4.2vw,4.4rem);line-height:1.13}
+.end .lead{margin-top:1.5rem;font-size:1.125rem;max-width:38rem;color:var(--ink-2)}
+.end .lead+.lead{margin-top:.8rem}
+.end .lead b{color:var(--ink);font-weight:600}
+.end .go{margin-bottom:3.6rem}
+.foot{padding:1.4rem 0 2.2rem;font-size:.9375rem;color:var(--ink-2)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:.4rem 2rem;justify-content:space-between}
+
+/* ----- ingrandimento ----- */
+.zoom{position:fixed;inset:0;z-index:30;background:rgba(255,255,255,.97);display:grid;place-items:center;padding:2.2rem;opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility 0s .25s}
+.zoom.open{opacity:1;visibility:visible;transition:opacity .25s var(--ease),visibility 0s}
+.zoom figure{margin:0;max-width:min(88rem,100%)}
+.zoom .zf{position:relative;display:inline-block;max-width:100%;padding:.8rem;background:var(--board)}
+.zoom .zf svg{position:absolute;left:0;top:0;width:100%;height:100%;stroke-width:4}
+.zoom img{max-width:100%;max-height:calc(100vh - 9rem);background:#fff}
+.zoom figcaption{margin-top:.9rem;font-size:1rem;text-align:center;color:var(--ink-2)}
+.zoom .x{position:absolute;top:1.2rem;right:1.4rem;width:3rem;height:3rem;display:grid;place-items:center}
+.zoom .x svg{width:2.2rem;height:2.2rem;stroke-width:6}
+
+
+/* ----- piccoli movimenti che vivono da soli; fermi con «movimento ridotto» e con ?fermo ----- */
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-2px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spd{from{opacity:.15;transform:translateX(4px)}to{opacity:1;transform:translateX(-3px)}}
+@keyframes travel{from{offset-distance:0%}to{offset-distance:100%}}
+@keyframes retrace{0%,83%{clip-path:inset(-40% -4% -40% -4%)}84%{clip-path:inset(-40% 104% -40% -4%)}100%{clip-path:inset(-40% -4% -40% -4%)}}
+@keyframes march{to{stroke-dashoffset:-30}}
+@keyframes drift{to{stroke-dashoffset:-18}}
+@keyframes pulse{0%{left:20%;opacity:0}5%{opacity:1}92%{opacity:1}100%{left:99%;opacity:0}}
+@keyframes nudge{0%,70%,100%{translate:0 0}80%{translate:4px 5px}90%{translate:1px 1px}}
+@keyframes hop{0%,72%,100%{translate:0 0}82%{translate:0 5px}91%{translate:0 1px}}
+@keyframes sway{from{rotate:-2.5deg}to{rotate:2.5deg}}
+.hero svg.bus{animation:bob .55s ease-in-out infinite alternate}
+.hero .bus .wh,.hero .bus .hub{transform-box:fill-box;transform-origin:center;animation:spin 1.3s linear infinite}
+.bus .spd{animation:spd .7s ease-in-out infinite alternate}
+.end svg.bus{animation:bob 1.4s ease-in-out infinite alternate}
+.minimap .trav{fill:var(--ink);stroke:none;offset-path:path("M30 152 C48 122 70 108 92 112 S132 150 152 142 S195 96 217 97 S257 132 277 127 S316 73 337 72 S372 106 387 101 S418 56 430 38");offset-rotate:0deg;animation:travel 12s linear infinite}
+h1 .circled svg{animation:retrace 11s var(--ease) 5s infinite}
+.end h2 .circled svg{animation:retrace 9s var(--ease) 3s infinite}
+.under svg{animation:retrace 13s var(--ease) 6s infinite}
+.march path{animation:march 1.5s linear infinite}
+.drift path{animation:drift 2.6s linear infinite}
+.ftrack .pulse{position:absolute;top:50%;left:20%;width:1.15rem;height:1.15rem;transform:translate(-50%,-50%);animation:pulse 7.5s cubic-bezier(.45,0,.25,1) infinite}
+.ftrack .pulse svg{display:block;width:100%;height:100%;stroke-width:6}
+.scrawl svg,.here svg,.busbox svg.tagarr{animation:nudge 4.2s ease-in-out infinite}
+.stop:nth-of-type(even) .scrawl svg{animation-delay:1.6s}
+.go svg.arr{animation:hop 3.6s ease-in-out infinite}
+.palina .num{transform-origin:50% 100%;animation:sway 3.8s ease-in-out infinite alternate}
+.palina .num svg.tk{animation:retrace 8s var(--ease) 2s infinite}
+html.still *,html.still *::before,html.still *::after{animation:none!important}
+
+@media (max-width:980px){
+  :root{--railc:1.7rem;--gut:4.5rem}
+  .top .in{flex-wrap:wrap;row-gap:.2rem}
+  .top nav{order:3;width:100%;overflow-x:auto;gap:1.1rem;padding-bottom:.35rem;scrollbar-width:none}
+  .top nav a{white-space:nowrap;font-size:.875rem}
+  html{scroll-padding-top:7rem}
+  .scene{max-width:30rem;margin-left:auto;width:100%}
+  .minimap{padding-right:5.2rem}
+  .busbox{padding-right:5.5rem}
+  .palina{width:4.4rem}
+  .palina .num{width:4.4rem;height:4.4rem;font-size:2.6rem}
+  .palina .lb{font-size:1.35rem}
+  .palina svg.pole{height:5.5rem}
+  .cmark{width:1.8rem}
+  .stop.wide .txt{display:block}
+  .stop.wide .proofs{grid-column:2;display:block}
+  .stop .sheet{width:100%!important;margin-left:0!important;max-width:none}
+  .stop .sheet+.sheet{margin-top:2.2rem!important}
+  .here,.todo{display:none}
+  .mst{display:block;font-size:.9375rem;font-weight:400;letter-spacing:0;line-height:1.35;color:var(--ink-2);margin-top:.1rem}
+  .lrow.v{margin:0}
+  .st{display:grid;grid-template-columns:2.2rem 1fr;column-gap:.8rem}
+  .st .mpin{display:block;grid-row:1 / span 4;width:2rem;height:2rem;margin-top:.1rem}
+  .st .mpin svg{width:100%;height:100%;stroke-width:6}
+  .st>*:not(.mpin){grid-column:2}
+  .matrix thead th{vertical-align:bottom}
+  .matrix thead a{display:flex;flex-direction:column-reverse;align-items:center;gap:.4rem}
+  .matrix thead th .t{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;font-size:.8125rem;line-height:1.1}
+  .hero .wrap{row-gap:1.4rem}
+  .scene{margin-top:.6rem}
+  .end .busbox{margin-top:5rem;max-width:30rem;margin-left:auto;width:100%}
+  .hero .wrap,.end .wrap{grid-template-columns:1fr}
+  .stop{grid-template-columns:3.4rem minmax(0,1fr);column-gap:1.1rem}
+  .rail,.num{width:3.4rem}
+  .num{height:3.4rem;font-size:2rem}
+  .stop .txt{position:static}
+  .proofs{grid-column:2;margin-top:2rem}
+  .lhead{display:none}
+  .lrow{grid-template-columns:1fr;padding:.5rem 0}
+  .lrow .trk{grid-column:1}
+  .frow{grid-template-columns:1fr}
+  .ftrack{display:none}
+  .st{padding:0 0 1.4rem 0}
+  .along{grid-template-columns:1fr}
+  .along .br{grid-column:1}
+}
+@media (max-width:600px){
+  :root{--pad:1rem}
+  .end h2{font-size:2rem;line-height:1.22}
+  .hero h1{font-size:1.95rem;line-height:1.2}
+  h1 .circled svg,.end h2 .circled svg{stroke-width:5.5}
+  .quote{padding:2.7rem 1.4rem 2.4rem}
+  .minimap{padding-right:0}
+  .minimap .lb.a{display:none}
+  .scene{gap:3rem}
+  .busbox{padding-right:4.6rem}
+  .busbox .tag{right:auto;left:2%;top:-2.1rem;font-size:1.45rem}
+  .busbox svg.tagarr{right:auto;left:38%;top:-1.9rem;width:2.1rem;height:2.1rem}
+  .palina{width:3.8rem}
+  .palina .num{width:3.8rem;height:3.8rem;font-size:2.2rem}
+  .palina .lb{font-size:1.15rem}
+  .palina svg.pole{height:2.4rem}
+  .end .busbox{margin-top:3rem}
+  .matrix{table-layout:fixed}
+  .matrix th,.matrix td{padding:.45rem 0}
+  .matrix thead th:first-child{width:5.6rem}
+  .matrix tbody th{padding-right:.3rem;overflow-wrap:anywhere}
+  .top .ttl{display:none}
+  .matrix tbody th{font-size:.8125rem;line-height:1.3}
+  .matrix tbody th small{display:none}
+  .matrix td svg{width:1.25rem;height:1.25rem}
+  .matrix thead th{width:auto}
+  .matrix thead .num{width:1.45rem;height:1.45rem;font-size:.9375rem}
+  .matrix thead .num svg{stroke-width:7}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-6%" y="-20%" width="112%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".028" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="top" id="top">
+  <div class="in">
+    <img class="logo" src="img/tper-logo.png" alt="TPER, cambia il movimento" width="640" height="232">
+    <span class="ttl">Data governance, area vendite</span>
+    <nav aria-label="Capitoli" id="nav">
+      <a href="#domanda">La domanda</a>
+      <a href="#partenza">La partenza</a>
+      <a href="#percorso">Il percorso</a>
+      <a href="#flusso">Il flusso</a>
+      <a href="#lungo">Lungo la linea</a>
+      <a href="#chi">Chi risponde</a>
+      <a href="#capolinea">Capolinea</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="spinebox" id="spinebox" aria-hidden="true"><svg id="spine" class="mk red stretch" viewBox="0 0 20 1000" preserveAspectRatio="none"><path stroke-width="7" d="M10 0 C6 120 14 260 9 400 C5 540 14 700 10 820 C8 900 11 960 10 1000"/></svg></div>
+
+<!-- ============ LA DOMANDA ============ -->
+<section class="hero" id="domanda" data-chap>
+  <div class="wrap">
+    <h1>Come facciamo dei nostri dati un <span class="circled">asset affidabile<svg class="mk red stretch draw" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path d="M14 56 C6 24 68 7 150 8 C232 9 297 26 290 55 C284 84 214 96 140 93 C68 90 12 80 13 50 C14 34 34 22 58 16"/></svg></span>, su cui basare le decisioni?</h1>
+    <div>
+      <p class="lead">È la prima priorità della Strategia ICT 2026-2028 di TPER. Il progetto di data governance sull'<b>area vendite</b> è la prima risposta completa: l'abbiamo scomposta in <b>otto domande</b>. Ognuna ha una risposta, una prova presa dalla piattaforma e qualcuno che ne risponde.</p>
+      <a class="go" href="#partenza">Segui la linea
+        <svg class="mk box stretch" viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path d="M5 9 C90 4 210 7 296 6"/><path d="M294 3 C297 26 295 54 296 76"/><path d="M298 74 C200 78 96 73 4 76"/><path d="M6 78 C3 54 5 28 4 4"/></svg>
+        <svg class="mk red arr" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 C19 14 21 24 20 34"/><path d="M8 23 C12 28 17 32 20 35 C24 31 28 27 33 22"/></svg>
+      </a>
+    </div>
+    <div class="scene">
+     <div class="minimap">
+      <svg class="mk" viewBox="0 0 460 200" role="group" aria-label="La linea in otto fermate: ogni numero porta alla sua domanda">
+        <path class="red" stroke-width="7" d="M30 152 C48 122 70 108 92 112 S132 150 152 142 S195 96 217 97 S257 132 277 127 S316 73 337 72 S372 106 387 101 S418 56 430 38"/>
+        <circle class="trav" r="7"/>
+        <g id="mm"></g>
+      </svg>
+      <span class="hand lb a">si parte da qui</span>
+     </div>
+     <div class="busbox">
+      <span class="hand tag">linea Vendite</span>
+      <svg class="mk red tagarr" viewBox="0 0 60 60" aria-hidden="true"><path d="M52 6 C40 8 24 18 14 44"/><path d="M6 30 C9 36 12 42 14 47 C19 44 25 41 31 39"/></svg>
+      <svg class="mk bus" viewBox="0 0 380 190" role="img" aria-label="Un autobus disegnato a pennarello, in partenza sulla linea Vendite">
+        <path d="M24 128 C21 92 22 58 30 42 C36 30 62 27 122 26 L302 24 C330 24 344 36 348 64 L352 128 C352 137 345 139 334 139 L44 140 C30 140 25 137 24 128"/>
+        <path d="M54 48 L112 47 L113 86 L53 87 Z"/><path d="M128 47 L188 46 L189 86 L128 87 Z"/><path d="M204 46 L264 46 L264 86 L204 86 Z"/>
+        <path d="M282 46 L322 48 C330 56 334 72 334 88 L283 87 Z"/>
+        <path class="red" stroke-width="7" d="M27 108 C120 104 244 109 350 105"/>
+        <path stroke-width="3" d="M150 117 L139 131 M172 117 L161 131 M194 117 L183 131 M216 117 L205 131 M238 117 L227 131"/>
+        <path class="wh" d="M70 142 C68 126 80 116 94 116 C110 116 120 128 118 144 C116 158 106 166 93 165 C80 164 71 155 70 142"/><path class="hub" d="M90 136 C96 134 100 140 96 145 C92 148 87 144 90 136"/>
+        <path class="wh" d="M250 142 C248 126 260 116 274 116 C290 116 300 128 298 144 C296 158 286 166 273 165 C260 164 251 155 250 142"/><path class="hub" d="M270 136 C276 134 280 140 276 145 C272 148 267 144 270 136"/>
+        <path d="M340 118 C344 117 348 119 349 123"/>
+        <g class="spd"><path d="M2 70 C8 69 13 70 17 69"/><path d="M-6 92 C2 90 10 92 16 91"/><path d="M4 114 C9 113 13 114 17 113"/></g>
+      </svg>
+      <div class="palina" aria-hidden="true">
+        <span class="num"><svg class="mk red" viewBox="0 0 100 100"><path stroke-width="6" d="M54 8 C26 5 8 27 9 52 C10 78 30 93 54 92 C78 91 93 72 92 48 C91 24 72 8 46 9 C39 9 33 11 28 15"/></svg><span>8</span></span>
+        <span class="hand lb">fermate</span>
+        <svg class="mk stretch pole" viewBox="0 0 20 200" preserveAspectRatio="none"><path d="M10 2 C7 60 13 130 10 198"/></svg>
+      </div>
+     </div>
+    </div>
+    <svg class="mk red stretch road" viewBox="0 0 1200 20" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="7" d="M0 10 C200 5 420 16 640 9 C860 3 1040 15 1240 8"/></svg>
+    <svg class="mk red bend" id="bend-a" viewBox="0 0 40 40" aria-hidden="true"><path stroke-width="7" d="M40 6 C18 5 6 16 6 40"/></svg>
+  </div>
+</section>
+
+<!-- ============ IL PUNTO DI PARTENZA ============ -->
+<section id="partenza" data-chap>
+  <div class="wrap chap">
+    <svg class="mk red cmark" viewBox="0 0 40 20" aria-hidden="true"><path stroke-width="7" d="M4 11 C14 7 26 13 36 9"/></svg>
+    <h2><span class="under">Il punto di partenza<svg class="mk red stretch draw" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="6" d="M3 9 C70 3 180 13 297 6"/></svg></span></h2>
+    <p class="intro">Prima di costruire qualcosa bisogna sapere dove si vuole andare e che cosa si ha in mano. Sono le prime due fermate.</p>
+  </div>
+  <div class="wrap" id="stops-a"></div>
+</section>
+
+<!-- ============ IL PERCORSO ============ -->
+<section class="grey" id="percorso" data-chap>
+  <div class="wrap chap">
+    <svg class="mk red cmark" viewBox="0 0 40 20" aria-hidden="true"><path stroke-width="7" d="M4 11 C14 7 26 13 36 9"/></svg>
+    <h2><span class="under">Il percorso: sette linee, una in fondo<svg class="mk red stretch draw" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="6" d="M3 8 C90 13 200 3 297 9"/></svg></span></h2>
+    <p class="intro">La Strategia ha mappato sette domini informativi. Ognuno è una linea con quattro fermate di conoscenza. Vendite l'ha percorsa fin quasi in fondo; Manutenzione è alla seconda. Le altre sono già disegnate: aspettano lo stesso viaggio.</p>
+  </div>
+  <div class="wrap"><div class="lines" id="lines"></div></div>
+</section>
+
+<!-- ============ IL FLUSSO ============ -->
+<section id="flusso" data-chap>
+  <div class="wrap chap">
+    <svg class="mk red cmark" viewBox="0 0 40 20" aria-hidden="true"><path stroke-width="7" d="M4 11 C14 7 26 13 36 9"/></svg>
+    <h2><span class="under">Il flusso: dove nascono le risposte<svg class="mk red stretch draw" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="6" d="M3 7 C80 12 210 4 297 10"/></svg></span></h2>
+    <p class="intro">Sulla linea Vendite il dato fa cinque tappe. Alla partenza è nella nebbia: esiste, ma nessuno sa dire con certezza che cosa contiene. Poi, tappa dopo tappa, una domanda trova risposta dentro il flusso, non in un documento a parte.</p>
+    <div class="flow" id="flow"></div>
+  </div>
+  <div class="wrap" id="stops-b"></div>
+  <div class="wrap sub" id="lungo" data-chap>
+    <svg class="mk red cmark" viewBox="0 0 40 20" aria-hidden="true"><path stroke-width="7" d="M4 11 C14 7 26 13 36 9"/></svg>
+    <h2><span class="under">Lungo tutta la linea<svg class="mk red stretch draw" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="6" d="M3 9 C100 4 190 12 297 6"/></svg></span></h2>
+    <p class="intro">Due domande non hanno una tappa: accompagnano il dato per tutto il viaggio, da quando entra in bronze a quando arriva nel report.</p>
+  </div>
+  <div class="wrap" id="stops-c"></div>
+</section>
+
+<!-- ============ CHI RISPONDE ============ -->
+<section class="grey" id="chi" data-chap>
+  <div class="wrap chap" style="padding-bottom:4.5rem">
+    <svg class="mk red cmark" viewBox="0 0 40 20" aria-hidden="true"><path stroke-width="7" d="M4 11 C14 7 26 13 36 9"/></svg>
+    <h2><span class="under">Chi risponde di che cosa<svg class="mk red stretch draw" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="6" d="M3 8 C90 3 200 13 297 7"/></svg></span></h2>
+    <p class="intro">Ogni domanda ha una funzione che la presidia. Qui compaiono le funzioni e non i nomi: le attribuzioni della Policy di data governance sono in fase di validazione.</p>
+    <table class="matrix" id="matrix"></table>
+  </div>
+</section>
+
+<!-- ============ CAPOLINEA ============ -->
+<section class="end" id="capolinea" data-chap>
+  <div class="wrap">
+    <h2>Capolinea.<br>Per l'area vendite, oggi sappiamo <span class="circled">rispondere<svg class="mk red stretch draw" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path d="M12 54 C8 26 70 9 152 9 C236 9 296 28 290 56 C283 85 212 95 138 92 C66 89 13 78 14 50 C15 36 32 24 54 18"/></svg></span>.</h2>
+    <div>
+      <p class="lead">Sappiamo <b>quali dati abbiamo</b> e che cosa significano, <b>chi ne risponde</b>, <b>come li controlliamo</b> e <b>da dove arriva ogni numero</b>. L'ultimo tratto, il report commerciale, è in corso.</p>
+      <p class="lead">Il percorso è tracciato e si può ripetere: Manutenzione è già analizzata, gli altri cinque domini sono inventariati.</p>
+      <a class="go" href="#percorso">Riguarda le sette linee
+        <svg class="mk box stretch" viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path d="M5 8 C90 5 210 9 296 5"/><path d="M294 3 C297 26 295 54 296 76"/><path d="M298 75 C200 77 96 74 4 77"/><path d="M6 78 C3 54 5 28 4 4"/></svg>
+        <svg class="mk red arr" viewBox="0 0 40 40" aria-hidden="true" style="rotate:180deg"><path d="M20 4 C19 14 21 24 20 34"/><path d="M8 23 C12 28 17 32 20 35 C24 31 28 27 33 22"/></svg>
+      </a>
+    </div>
+    <div class="busbox">
+      <svg class="mk bus" viewBox="0 0 380 190" role="img" aria-label="L'autobus fermo al capolinea">
+        <path d="M24 128 C21 92 22 58 30 42 C36 30 62 27 122 26 L302 24 C330 24 344 36 348 64 L352 128 C352 137 345 139 334 139 L44 140 C30 140 25 137 24 128"/>
+        <path d="M54 48 L112 47 L113 86 L53 87 Z"/><path d="M128 47 L188 46 L189 86 L128 87 Z"/><path d="M204 46 L264 46 L264 86 L204 86 Z"/>
+        <path d="M282 46 L322 48 C330 56 334 72 334 88 L283 87 Z"/>
+        <path class="red" stroke-width="7" d="M27 108 C120 104 244 109 350 105"/>
+        <path stroke-width="3" d="M150 117 L139 131 M172 117 L161 131 M194 117 L183 131 M216 117 L205 131 M238 117 L227 131"/>
+        <path class="wh" d="M70 142 C68 126 80 116 94 116 C110 116 120 128 118 144 C116 158 106 166 93 165 C80 164 71 155 70 142"/><path class="hub" d="M90 136 C96 134 100 140 96 145 C92 148 87 144 90 136"/>
+        <path class="wh" d="M250 142 C248 126 260 116 274 116 C290 116 300 128 298 144 C296 158 286 166 273 165 C260 164 251 155 250 142"/><path class="hub" d="M270 136 C276 134 280 140 276 145 C272 148 267 144 270 136"/>
+      </svg>
+      <div class="palina" aria-hidden="true">
+        <span class="num"><svg class="mk red" viewBox="0 0 100 100"><path stroke-width="6" d="M54 8 C26 5 8 27 9 52 C10 78 30 93 54 92 C78 91 93 72 92 48 C91 24 72 8 46 9 C39 9 33 11 28 15"/></svg><svg class="mk red tk" viewBox="0 0 76 64"><path d="M7 34 C14 40 20 49 25 58 C34 34 50 15 70 6"/></svg></span>
+        <span class="hand lb">capolinea</span>
+        <svg class="mk stretch pole" viewBox="0 0 20 200" preserveAspectRatio="none"><path d="M10 2 C7 60 13 130 10 198"/></svg>
+      </div>
+    </div>
+    <svg class="mk red stretch road" viewBox="0 0 1200 20" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="7" d="M0 10 C220 15 430 4 650 11 C860 17 1010 6 1240 10"/></svg>
+    <svg class="mk red bend" id="bend-b" viewBox="0 0 40 40" aria-hidden="true"><path stroke-width="7" d="M6 0 C5 22 16 34 40 34"/></svg>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>Le schermate vengono dall'ambiente di collaudo della piattaforma dati. I nomi delle persone sono oscurati.</span>
+    <span>TPER · Progetto di data governance · novembre 2026</span>
+  </div>
+</footer>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Schermata ingrandita" inert>
+  <button class="x" id="z-close" aria-label="Chiudi l'ingrandimento">
+    <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8 C16 16 25 25 33 33"/><path d="M33 7 C24 16 15 25 7 33"/></svg>
+  </button>
+  <figure id="zoom-fig"><span class="zf" id="zoom-zf"><svg class="mk stretch" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path d="M4 7 C96 3 204 8 296 5"/><path d="M295 3 C297 66 295 134 296 197"/><path d="M298 195 C198 198 100 194 3 196"/><path d="M5 198 C3 132 5 66 4 3"/></svg></span><figcaption id="zoom-cap"></figcaption></figure>
+</div>
+
+<script>
+/* ---------- contenuti ---------- */
+/* aiuti per stampa e catture: ?fermo traccia subito tutti i segni, &da=N parte da N pixel dall'alto */
+if(/[?&]fermo/.test(location.search)){ document.documentElement.style.scrollBehavior = "auto"; document.documentElement.classList.add("still"); }
+{ const da = /[?&]da=(\d+)/.exec(location.search); if(da) document.documentElement.style.marginTop = "-"+da[1]+"px"; }
+const IMG = "img/";
+const DOC = null;
+const ROLE = {
+  cdm: ["Comitato guida Data Move", "presidia la Strategia e ne segue gli indicatori"],
+  bdo: ["Business Data Owner", "risponde del significato del dato, uno per dominio"],
+  dto: ["Data Technology Owner", "risponde della piattaforma e delle pipeline"],
+  dgl: ["Data Governance Lead", "presidia regole, catalogo e glossario su tutti i domini"]
+};
+const D = {
+  strategia: ["Strategia ICT ed Evoluzione Data-Driven 2026-2028", "20260302_TPER_Strategia_ICT_2026-2028.docx"],
+  vendite: ["Analisi del dominio vendite, giugno 2026", "20260618_TPER_Analisi_dominio_vendite.pdf"],
+  manutenzione: ["Sintesi dell'analisi del dominio manutenzione, luglio 2026", "20260630_TPER_Sintesi_Analisi_dominio_Manutenzione.pptx"],
+  policy: ["Policy di Data Governance v3, ottobre 2026", "20261014_TPER_POLICY_DGV3.pptx"],
+  catalogo: ["Data Catalog ufficiale: metadati delle tabelle", "TPER_Data_Catalog_UFFICIALE_METADATI_TABELLE.xlsx"],
+  agosto: ["Stato del progetto di data governance, agosto 2026", "20260804_TPER_PROGETTO_DATA_GOVERNANCE_U.pdf"]
+};
+/* le otto domande, nell'ordine in cui si incontrano scorrendo */
+const Q = [
+ { id:1, grp:"a", tag:"Dove andiamo",
+   q:"Dove vogliamo andare, con i dati, nei prossimi tre anni?",
+   a:"La Strategia ICT 2026-2028 lo ha scritto: una funzione di data governance, sei priorità, diciassette indicatori e un comitato che li segue ogni trimestre.",
+   exp:["La Strategia, di marzo 2026, mette al primo posto la capacità decisionale: <b>trasformare i dati in un vero asset strategico</b>. Per farlo istituisce la funzione di data governance e ne descrive l'organizzazione.",
+        "Quattro dei diciassette indicatori aspettano proprio questo progetto: accessi alle dashboard, dati aggiornati entro i tempi, controlli di qualità attivi, report prodotti in automatico. Il comitato guida, in co-leadership con le Risorse Umane, ne presidia l'attuazione."],
+   quote:["Accrescere la capacità decisionale. Garantire la continuità del servizio. Efficientare processi operativi, manutentivi e di reportistica. Promuovere una cultura interna. Ridurre la proliferazione degli applicativi. Garantire la conformità normativa.", "Le sei priorità della Strategia ICT ed Evoluzione Data-Driven 2026-2028"],
+   roles:["cdm"], docs:[D.strategia] },
+ { id:2, lay:"narrow", grp:"a", tag:"Che cosa abbiamo",
+   q:"Che cosa abbiamo, in sistemi e in dati, e chi ci lavora ogni giorno?",
+   a:"Sette domini informativi mappati nella Strategia; due di questi, vendite e manutenzione, analizzati a fondo insieme alle persone che li usano.",
+   exp:["Per le vendite: bigliettazione, portale clienti, sanzioni, sharing, contabilità; e quattro dati essenziali, cioè titolo di viaggio, verbale, servizio di sharing, cliente. Per la manutenzione: un sistema centrale collegato a una ventina di altri e oltre quaranta dashboard già esistenti.",
+        "Sulla piattaforma dati oggi arrivano <b>sei sistemi sorgente</b> dell'area vendite, ciascuno nel proprio spazio di arrivo."],
+   note:"uno spazio per ogni sistema",
+   proof:[["catalogo-albero.jpg","L'albero del catalogo sulla piattaforma. Nel riquadro, gli spazi di arrivo dei dati grezzi: uno per sistema sorgente.","Albero del catalogo con gli spazi di arrivo dei dati",[8.2, 15.8, 90.2, 25.4]]],
+   roles:["dgl","bdo"], docs:[D.vendite, D.manutenzione] },
+ { id:3, grp:"b", tag:"Dove sono i dati",
+   q:"Dove sono i nostri dati, e che cosa vuol dire ogni tabella?",
+   a:"In un catalogo unico sulla piattaforma: ogni tabella e ogni colonna hanno una descrizione in italiano e quattro etichette di governo.",
+   exp:["Il catalogo non è un documento a parte: è la piattaforma stessa dove il dato passa. <b>21 tabelle e 1.355 colonne</b> dell'area vendite sono descritte in linguaggio di business.",
+        "Ogni tabella porta quattro etichette: stato di certificazione, criticità per la sicurezza, sensibilità, presenza di dati personali. Chi cerca una tabella trova subito che cosa contiene, chi ne risponde e come va trattata."],
+   note:"21 tabelle, 1.355 colonne descritte così",
+   proof:[["tabella-vendite.jpg","La tabella delle vendite della bigliettazione. Nel riquadro la descrizione in italiano; sotto, colonna per colonna, il significato e le etichette.","Scheda della tabella delle vendite con descrizione e colonne",[2.0, 17.2, 96.1, 29.2]]],
+   roles:["bdo","dto"], docs:[D.catalogo, D.policy] },
+ { id:4, lay:"pair", grp:"b", tag:"Le nostre categorie",
+   q:"I filtri dei report usano le nostre categorie, o quelle dei sistemi?",
+   a:"Le nostre. I codici dei sistemi sono raggruppati in categorie leggibili, caricate come tabelle di riferimento dentro il flusso.",
+   exp:["I sistemi parlano in codici. Con i referenti IT, e poi con il commerciale, <b>224 codici di titolo</b> sono stati raggruppati in categorie che hanno senso per chi legge un report: corsa semplice con carta, con biglietto, borsellino elettronico, abbonamento.",
+        "Non vivono in un foglio Excel. Ognuna delle <b>2.468 coppie</b> codice-descrizione nasce come proposta; il flusso usa solo quelle approvate dal proprietario del dato."],
+   note:"nasce proposta, vale se approvata",
+   proof:[["reference.jpg","La tabella di riferimento dei codici. Nel riquadro la descrizione; sotto, il codice così come arriva dalla sorgente.","Scheda della tabella di riferimento dei codici",[2.0, 17.2, 96.1, 13.8]],
+          ["reference-schema.jpg","Le tre tabelle di riferimento, nel riquadro: struttura attesa, famiglie dei titoli, codici.","Elenco delle tre tabelle di riferimento",[2.8, 76.2, 25.1, 21.4]]],
+   roles:["bdo","dgl"], docs:[["Proposta di categorizzazione dei titoli di viaggio: 224 codici"]] },
+ { id:5, lay:"wide", grp:"b", tag:"Un numero per decidere",
+   q:"Quando serve un numero per decidere, da dove lo prendiamo, e possiamo fidarci?",
+   a:"Dall'ultimo strato della piattaforma. Il dato arriva grezzo, viene controllato, poi consolidato per i report; e di ogni numero si può risalire all'origine.",
+   exp:["Tre strati, tre garanzie. In <b>bronze</b> il dato è com'è arrivato, intoccato. In <b>silver</b> entra solo ciò che ha superato i controlli. In <b>gold</b> è nella forma che serve a chi decide: le vendite per giorno, canale, titolo e azienda.",
+        "La piattaforma traccia in automatico da quali tabelle proviene ogni numero. Oggi tutta la catena è costruita e collaudata sulle vendite e sulle validazioni di TPER e del Marconi Express."],
+   note:"da dove viene ogni numero",
+   proof:[["lineage.jpg","La tracciabilità della tabella delle vendite, nel riquadro: a sinistra le tabelle controllate da cui nasce.","Grafo della tracciabilità della tabella delle vendite",[40.4, 20.2, 19.7, 38.7]],
+          ["gold-schema.jpg","Lo strato gold di collaudo. Nel riquadro, la tabella delle vendite e le anagrafiche che la descrivono.","Elenco delle tabelle dello strato gold",[2.8, 63.0, 24.9, 35.3]]],
+   roles:["dto"], docs:[["Il controllo dei dati dal bronze al silver, spiegato a chi non è tecnico (bozza, novembre 2026)"]] },
+ { id:6, lay:"pair", grp:"b", tag:"La stessa parola",
+   q:"Quando due report usano la stessa parola, intendono la stessa cosa?",
+   a:"Sì, se la parola è nel glossario: 38 termini dell'area vendite pubblicati, ciascuno con definizione, uso e tabella di riferimento.",
+   exp:["Il caso che ha fatto scattare il lavoro: in un report \"corsa\" indicava la corsa programmata, in un altro quella effettuata. Il glossario scioglie l'ambiguità una volta per tutte: ogni termine ha un proprietario e una definizione approvata.",
+        "Vive dentro la piattaforma, accanto alle tabelle che descrive. Quando la tabella ancora non c'è, la scheda lo dice."],
+   note:"38 termini, tutti pubblicati",
+   proof:[["glossario-termine.jpg","La scheda del termine Validazione. Nel riquadro la definizione; sotto, l'uso di business e il collegamento alla tabella.","Scheda del termine Validazione nel glossario",[0.9, 36.8, 98.1, 9.5]],
+          ["glossario-elenco.jpg","I primi termini pubblicati del dominio Vendite, nel riquadro.","Elenco dei termini pubblicati del glossario",[0.5, 16.9, 29.1, 82.0]]],
+   roles:["bdo","dgl"], docs:[D.policy, D.vendite] },
+ { id:7, lay:"wide", grp:"c", tag:"Le anomalie",
+   q:"Come ci accorgiamo di un'anomalia, e chi la risolve?",
+   a:"Un motore controlla ogni carico di dati con regole concordate. Se una regola bloccante fallisce, il carico si ferma e si apre un caso con un responsabile.",
+   exp:["Non tutte le anomalie sono errori. 911 conducenti senza data di patente sembravano dati incompleti: sono utenti che usano solo le e-bike. La regola è stata confermata dal proprietario del dato e scritta nel catalogo delle regole.",
+        "Il motore non corregge e non scarta nulla: segnala, ferma se serve, apre un <b>caso</b>. È stato collaudato sui dati reali il 18 e 19 novembre 2026. Ogni giorno, in più, una misurazione fotografa lo stato di tutte le tabelle."],
+   note:"cinque giorni, tutte riuscite",
+   proof:[["profiling.jpg","La misurazione quotidiana: ogni colonna verde è un'esecuzione riuscita, in quattro passi.","Grafico delle esecuzioni della misurazione quotidiana"],
+          ["casi.jpg","La tabella dei casi. Nel riquadro la sua descrizione: un problema da gestire, con la regola che lo ha rilevato.","Scheda della tabella dei casi",[2.0, 17.2, 96.1, 13.8]]],
+   roles:["dgl","bdo","dto"], docs:[D.agosto, ["Note di implementazione del motore di controllo (novembre 2026)"]] },
+ { id:8, lay:"pair", grp:"c", tag:"Chi risponde",
+   q:"Chi risponde dei dati?",
+   a:"Tre funzioni, attribuite a figure già presenti in azienda: chi governa la piattaforma, chi è proprietario del dato di business, chi presiede il metodo.",
+   exp:["Il <b>Data Technology Owner</b> risponde della piattaforma. Il <b>Business Data Owner</b>, uno per dominio, risponde del significato: approva descrizioni, termini, categorie, regole. Il <b>Data Governance Lead</b> presidia il metodo su tutti i domini.",
+        "Non è un organigramma a lato: sulla piattaforma ogni tabella, ogni termine e ogni caso hanno un proprietario."],
+   note:"il nome è oscurato: la Policy è in validazione",
+   proof:[["glossario-owner.jpg","Ogni termine del glossario ha un proprietario: è il campo nel riquadro, in testa alla scheda.","Scheda di un termine con il campo del proprietario evidenziato",[0.9, 32.7, 42.7, 6.8]],
+          ["tabelle-owner.jpg","Ogni tabella ha un proprietario: è la colonna nel riquadro.","Elenco di tabelle con la colonna del proprietario evidenziata",[27.9, 69.1, 18.2, 29.3]]],
+   roles:["dto","bdo","dgl"], docs:[D.policy, D.strategia] }
+];
+/* misure dei ritagli: riservano lo spazio prima che l'immagine arrivi */
+const DIM = {"glossario-owner.jpg": [1054, 410], "reference.jpg": [716, 678], "reference-schema.jpg": [716, 504], "glossario-elenco.jpg": [1056, 444], "catalogo-albero.jpg": [376, 544], "lineage.jpg": [780, 564], "glossario-termine.jpg": [1054, 674], "profiling.jpg": [708, 302], "tabelle-owner.jpg": [716, 504], "tabella-vendite.jpg": [716, 678], "gold-schema.jpg": [716, 616], "casi.jpg": [716, 678]};
+const STEPS = ["Inventariato","Analizzato con i referenti","Implementato sulla piattaforma","Reportistica rifatta"];
+const DOMAINS = [
+ {n:"Vendite / Commerciale / Call Center", reach:3, part:true, v:true},
+ {n:"Manutenzione / Impianti / Sosta", reach:2},
+ {n:"Esercizio", reach:1},{n:"Amministrazione", reach:1},{n:"Direzione / Staff", reach:1},{n:"HR", reach:1},{n:"Servizi di integrazione", reach:1}
+];
+const STATIONS = [
+ {n:"Sorgenti", g:"esiste, ma non lo conosciamo", d:"Sei sistemi dell'area vendite, ognuno con i suoi codici.", q:2, fog:true},
+ {n:"Bronze", g:"sappiamo che cosa c'è", d:"Il dato arriva com'è e viene catalogato.", q:3},
+ {n:"Silver", g:"è stato controllato", d:"Passa solo ciò che supera i controlli, con le categorie concordate.", q:4},
+ {n:"Gold", g:"è pronto per decidere", d:"Numeri consolidati, con l'origine di ciascuno.", q:5},
+ {n:"Report", g:"si legge con parole condivise", d:"La direzione legge termini di cui conosce il significato.", q:6}
+];
+
+/* ---------- segni a pennarello ---------- */
+const ring = cls => `<svg class="mk ${cls}" viewBox="0 0 100 100" aria-hidden="true"><path d="M54 8 C26 5 8 27 9 52 C10 78 30 93 54 92 C78 91 93 72 92 48 C91 24 72 8 46 9 C39 9 33 11 28 15"/></svg>`;
+const num = (n, cls="red") => `<span class="num">${ring(cls)}<span>${n}</span></span>`;
+const BOX = `<svg class="mk red stretch" viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path d="M6 8 C96 4 204 9 295 6"/><path d="M294 3 C297 28 295 52 296 77"/><path d="M298 74 C198 78 100 73 4 76"/><path d="M6 78 C3 52 5 30 4 4"/></svg>`;
+const QBOX = `<svg class="mk stretch" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path d="M5 9 C96 4 204 8 296 5"/><path d="M294 3 C297 40 295 80 296 117"/><path d="M298 115 C198 118 100 113 4 116"/><path d="M6 118 C3 80 5 42 4 4"/></svg>`;
+let tapeN = 0;
+const TAPES = [["M6 15 C32 10 66 18 94 12","left:44%;rotate:-3deg"],["M8 11 C30 17 62 8 92 15","left:20%;rotate:2.5deg"],["M5 14 C26 11 48 17 70 11 C80 9 88 14 95 12","left:62%;rotate:-1.5deg"]];
+const tape = () => { const t = TAPES[tapeN++ % TAPES.length]; return `<svg class="mk red tape" style="${t[1]}" viewBox="0 0 100 28" aria-hidden="true"><path stroke-width="9" d="${t[0]}"/></svg>`; };
+const ARR = `<svg class="mk red" viewBox="0 0 50 50" aria-hidden="true"><path d="M6 6 C14 20 24 32 40 40"/><path d="M26 44 C32 43 38 42 43 41 C42 35 41 30 39 25"/></svg>`;
+const FRAME = `<svg class="mk stretch fr" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path d="M4 7 C96 3 204 8 296 5"/><path d="M295 3 C297 66 295 134 296 197"/><path d="M298 195 C198 198 100 194 3 196"/><path d="M5 198 C3 132 5 66 4 3"/></svg>`;
+const LENS = `<svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M17 5 C9 5 4 11 5 18 C6 25 12 29 19 28 C26 27 30 21 29 14 C28 8 23 4 15 5"/><path d="M26 26 C29 29 32 33 35 36"/></svg>`;
+/* il riquadro sulla schermata: un giro di pennarello sopra la zona di cui parla la didascalia */
+const mark = b => { const wide = b[2] > 3.2*b[3]; const st = `left:${b[0]-1.2}%;top:${b[1]-2}%;width:${b[2]+2.4}%;height:${b[3]+4}%`; return wide
+  ? `<svg class="mk red stretch hl draw" style="${st}" viewBox="0 0 300 80" preserveAspectRatio="none" aria-hidden="true"><path d="M6 8 C96 4 204 9 295 6"/><path d="M294 3 C297 28 295 52 296 77"/><path d="M298 74 C198 78 100 73 4 76"/><path d="M6 78 C3 52 5 30 4 4"/></svg>`
+  : `<svg class="mk red stretch hl draw" style="${st}" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path d="M150 5 C66 4 8 22 9 50 C10 80 70 95 150 95 C232 95 292 80 291 50 C290 22 232 6 138 6 C118 6 100 8 84 12"/></svg>`; };
+const TICK = `<svg class="mk red" viewBox="0 0 76 64" aria-hidden="true"><path d="M7 34 C14 40 20 49 25 58 C34 34 50 15 70 6"/></svg>`;
+const seg = (cls, style, w, dash="") => `<svg class="mk stretch ln ${cls}" viewBox="0 0 1000 20" preserveAspectRatio="none" aria-hidden="true" style="${style}"><path stroke-width="${w}"${dash?` stroke-dasharray="${dash}"`:""} d="M0 10 C250 5 520 15 760 8 C860 6 940 12 1000 10"/></svg>`;
+const node = (cls, style) => `<svg class="mk nd ${cls}" style="${style}" viewBox="0 0 100 100" aria-hidden="true"><path d="M52 10 C26 8 10 28 11 52 C12 76 30 91 54 90 C76 89 91 72 90 48 C89 26 72 10 46 11"/></svg>`;
+const el = (t, cls, html) => { const e=document.createElement(t); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+const esc = s => s.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+const calm = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = id => document.getElementById(id);
+
+/* ---------- le fermate ---------- */
+function stop(c){
+  const s = el("article","stop"+(c.lay?" "+c.lay:"")); s.id = "d"+c.id; s.dataset.reveal = "";
+  const roles = c.roles.map(r=>ROLE[r][0]).join(c.roles.length>2 ? ", " : " e ");
+  const proof = c.quote
+    ? `<blockquote class="quote">${QBOX}${c.quote[0]}<small>${c.quote[1]}</small></blockquote>`
+    : (c.note ? `<div class="hand scrawl pop">${c.note}${ARR}</div>` : "") +
+      c.proof.map(p=>`<figure class="sheet" style="--nw:${DIM[p[0]][0]}px">${tape()}<button type="button" class="shot" data-zoom="${IMG+p[0]}" data-cap="${esc(p[1])}" aria-label="Ingrandisci: ${esc(p[2])}"><span class="pic"><img src="${IMG+p[0]}" alt="${esc(p[2])}" width="${DIM[p[0]][0]}" height="${DIM[p[0]][1]}" loading="lazy">${p[3]?mark(p[3]):""}</span>${FRAME}<span class="zcue hand" aria-hidden="true">${LENS}ingrandisci</span></button><figcaption>${p[1]}</figcaption></figure>`).join("");
+  s.innerHTML = `
+    <div class="rail">${num(c.id)}</div>
+    <div class="txt">
+      <div class="tl">
+        <h3>${c.q}</h3>
+        <p class="ans">${c.a}</p>
+        <p class="who">${BOX}<b>ne ${c.roles.length>1?"rispondono":"risponde"}</b><span>${roles}</span></p>
+      </div>
+      <div class="tr">
+        <div class="exp">${c.exp.map(p=>`<p>${p}</p>`).join("")}</div>
+        <ul class="docs"><li class="lbl">Per approfondire</li>${c.docs.map(d=>`<li>${DOC && d[1] ? `<a href="${DOC+encodeURI(d[1])}" target="_blank" rel="noopener">${d[0]}</a>` : `${d[0]} <span class="off">(documentazione di progetto)</span>`}</li>`).join("")}</ul>
+      </div>
+    </div>
+    <div class="proofs">${proof}</div>`;
+  return s;
+}
+function buildStops(){
+  ["a","b","c"].forEach(g=>{ const box = $("stops-"+g); Q.filter(c=>c.grp===g).forEach(c=>box.appendChild(stop(c))); });
+  document.querySelectorAll(".sheet img").forEach(im=>im.addEventListener("error",()=>{
+    im.closest(".sheet").replaceWith(el("p","missing","Schermata non trovata: la cartella «img» deve stare accanto a questa pagina."));
+  }));
+}
+
+/* ---------- il percorso ---------- */
+function buildLines(){
+  const box = $("lines"), pos = [12.5,37.5,62.5,87.5];
+  box.appendChild(el("div","lhead",`<div></div>`+STEPS.map(s=>`<div>${s}</div>`).join("")));
+  DOMAINS.forEach(dm=>{
+    const row = el("div","lrow"+(dm.v?" v":"")); row.dataset.reveal = "";
+    let trk = "";
+    for(let s=0;s<3;s++){
+      const st = `left:${pos[s]}%;width:25%`;
+      if(s+1<dm.reach) trk += seg((dm.v?"red ":"")+"draw", st, dm.v?7:5);
+      else if(dm.part && s+1===dm.reach) trk += seg("red draw march", st, 6, "14 16");
+      else trk += seg("", st+";opacity:.4", 3);
+    }
+    for(let s=0;s<4;s++){
+      const reached = s<dm.reach, next = dm.part && s===dm.reach;
+      trk += node((reached?"full ":"open ")+(dm.v?"red":""), `left:${pos[s]}%`+(reached||next?"":";opacity:.5"));
+    }
+    if(dm.v) trk += `<span class="hand here pop">${ARR}siamo qui</span><span class="hand todo pop">report commerciale, in corso</span>`;
+    const where = `fermata ${dm.reach} di 4: ${STEPS[dm.reach-1].toLowerCase()}`+(dm.part?`; la successiva è in corso`:"");
+    row.innerHTML = `<div class="nm">${dm.n}<span class="mst">${where}</span></div><div class="trk">${trk}</div>`;
+    box.appendChild(row);
+  });
+  box.appendChild(el("div","legend",`<span>${seg("red","",7)}tratto percorso</span><span>${seg("red","",6,"14 16")}in corso</span><span>${seg("","opacity:.4",3)}da percorrere</span>`));
+}
+
+/* ---------- il flusso ---------- */
+function buildFlow(){
+  const f = $("flow"); f.dataset.reveal = "";
+  const pins = STATIONS.map((s,i)=>`<a href="#d${s.q}" class="pin" style="left:calc(${i*20}% + ${i===0?1.25:0}rem)" aria-label="Tappa ${s.n}: vai alla domanda ${s.q}">${node(s.fog?"open":"full red","")}</a>`).join("");
+  f.innerHTML = `
+    <div class="ftrack">
+      ${seg("fog draw drift","",4,"3 15")}
+      <svg class="mk stretch ln lit red draw" viewBox="0 0 1000 20" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="8" d="M0 10 C200 5 420 15 640 8 C800 4 900 13 1000 9"/></svg>
+      <svg class="mk red arrh" viewBox="0 0 40 40" aria-hidden="true"><path d="M12 6 C20 11 28 16 34 20 C28 25 20 30 12 35"/></svg>
+      <span class="pulse" aria-hidden="true">${node("full red","")}</span>
+      ${pins}
+    </div>
+    <div class="frow">${STATIONS.map(s=>`<div class="st${s.fog?" fogged":""}"><span class="mpin" aria-hidden="true">${node(s.fog?"open":"full red","")}</span><div class="nm">${s.n}</div><div class="gl">${s.g}</div><p>${s.d}</p><a href="#d${s.q}">Domanda ${s.q}: ${Q[s.q-1].tag.toLowerCase()}</a></div>`).join("")}</div>
+    <div class="along">
+      <div class="lab">lungo tutta la linea</div>
+      <div class="br"><svg class="mk red stretch brace draw" viewBox="0 0 1000 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 26 C3 12 10 6 40 7 C330 3 680 10 962 6 C990 6 997 12 996 26"/></svg>
+        <a href="#d7">${num(7)}<span class="t">${Q[6].q}</span></a></div>
+      <div class="lab" aria-hidden="true"></div>
+      <div class="br"><svg class="mk red stretch brace draw" viewBox="0 0 1000 30" preserveAspectRatio="none" aria-hidden="true"><path d="M4 26 C3 13 11 7 42 8 C330 11 680 4 960 7 C989 7 997 13 996 26"/></svg>
+        <a href="#d8">${num(8)}<span class="t">${Q[7].q}</span></a></div>
+    </div>`;
+}
+
+/* ---------- la linea in otto fermate, nell'apertura ---------- */
+function buildMini(){
+  const pts = [[30,152],[92,112],[152,142],[217,97],[277,127],[337,72],[387,101],[430,38]];
+  $("mm").innerHTML = pts.map((p,i)=>`<a href="#d${i+1}" aria-label="Domanda ${i+1}: ${esc(Q[i].q)}"><path class="red dot" stroke-width="4.5" d="M${p[0]+1} ${p[1]-17} C${p[0]-12} ${p[1]-18} ${p[0]-18} ${p[1]-8} ${p[0]-17} ${p[1]+2} C${p[0]-16} ${p[1]+13} ${p[0]-7} ${p[1]+18} ${p[0]+3} ${p[1]+17} C${p[0]+13} ${p[1]+16} ${p[0]+18} ${p[1]+7} ${p[0]+17} ${p[1]-3} C${p[0]+16} ${p[1]-12} ${p[0]+9} ${p[1]-18} ${p[0]-2} ${p[1]-17}"/><text x="${p[0]}" y="${p[1]+9}">${i+1}</text></a>`).join("");
+}
+
+/* ---------- chi risponde ---------- */
+function buildMatrix(){
+  const t = $("matrix"); t.dataset.reveal = "";
+  t.innerHTML = `<caption class="sr">Quale funzione presidia ciascuna delle otto domande</caption>
+    <thead><tr><th scope="col"><span class="sr">Funzione</span></th>${Q.map(c=>`<th scope="col"><a href="#d${c.id}" aria-label="Domanda ${c.id}: ${esc(c.q)}">${num(c.id)}<span class="t">${c.tag}</span></a></th>`).join("")}</tr></thead>
+    <tbody>${Object.entries(ROLE).map(([k,[n,g]])=>`<tr><th scope="row">${n}<small>${g}</small></th>${Q.map(c=>`<td>${c.roles.includes(k) ? `<span class="pop" style="display:inline-block">${TICK}</span><span class="sr">sì</span>` : `<span class="no" aria-hidden="true"></span>`}</td>`).join("")}</tr>`).join("")}</tbody>`;
+}
+
+/* ---------- ingrandimento ---------- */
+let zoomFrom = null;
+function openZoom(btn){
+  zoomFrom = btn;
+  let im = $("zoom-img");
+  if(!im){ im = document.createElement("img"); im.id = "zoom-img"; $("zoom-zf").prepend(im); }
+  im.src = btn.dataset.zoom; im.alt = btn.querySelector("img").alt;
+  $("zoom-cap").textContent = btn.dataset.cap;
+  const z = $("zoom");
+  z.inert = false; z.classList.add("open");
+  $("top").inert = true; $("main").inert = true;
+  setTimeout(()=>$("z-close").focus(), 60);
+}
+function closeZoom(){
+  const z = $("zoom");
+  if(!z.classList.contains("open")) return;
+  z.classList.remove("open"); z.inert = true;
+  $("top").inert = false; $("main").inert = false;
+  if(zoomFrom && zoomFrom.isConnected) zoomFrom.focus({preventScroll:true});
+  zoomFrom = null;
+}
+document.addEventListener("click", e=>{
+  const z = e.target.closest("[data-zoom]");
+  if(z) openZoom(z); else if(e.target.closest("#zoom")) closeZoom();
+});
+document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeZoom(); });
+
+/* ---------- il segno si traccia, il capitolo si accende ---------- */
+function watch(){
+  const items = [...document.querySelectorAll("[data-reveal], .chap, .sub, .end .wrap")];
+  if(!calm() && !/[?&]fermo/.test(location.search) && "IntersectionObserver" in window){   /* ?fermo: tutti i segni già tracciati, per stampa e catture */
+    const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove("wait"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -12% 0px"});
+    items.forEach(it=>{ if(it.getBoundingClientRect().top > innerHeight*.9){ it.classList.add("wait"); io.observe(it); } });
+  }
+  /* la linea rossa: va dalla curva dell'apertura a quella del capolinea e si allunga con lo scorrimento */
+  const box = $("spinebox"), sp = $("spine"), main = $("main");
+  let drawn = 0, lenTot = 0, topAbs = 0;
+  const place = () => {
+    const mt = main.getBoundingClientRect().top;
+    const t = $("bend-a").getBoundingClientRect().bottom - mt, b = $("bend-b").getBoundingClientRect().top - mt;
+    lenTot = Math.max(0, b - t + 2); topAbs = t + mt + scrollY;
+    box.style.top = (t-1)+"px"; sp.style.height = lenTot+"px";
+  };
+  const still = calm() || /[?&]fermo/.test(location.search) || !("IntersectionObserver" in window);
+  const grow = () => {
+    const atEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 8;   /* in fondo alla pagina la linea è sempre completa */
+    drawn = (still || atEnd) ? lenTot : Math.min(lenTot, Math.max(drawn, scrollY + innerHeight*.72 - topAbs));
+    box.style.height = Math.max(0, drawn)+"px";
+  };
+  place(); grow();
+  addEventListener("load", ()=>{ place(); grow(); });
+  if("ResizeObserver" in window) new ResizeObserver(()=>{ place(); grow(); }).observe(main);
+  if(document.fonts) document.fonts.ready.then(()=>{ place(); grow(); });
+  const links = [...document.querySelectorAll("#nav a")];
+  const chaps = [...document.querySelectorAll("[data-chap]")];
+  let tick = false;
+  const upd = () => {
+    tick = false;
+    grow();
+    let cur = chaps[0];
+    chaps.forEach(c=>{ if(c.getBoundingClientRect().top < innerHeight*.4) cur = c; });
+    links.forEach(a=>{ const on = a.getAttribute("href")==="#"+cur.id; a.classList.toggle("on", on); if(on) a.setAttribute("aria-current","true"); else a.removeAttribute("aria-current"); });
+  };
+  addEventListener("scroll", ()=>{ if(!tick){ tick = true; requestAnimationFrame(upd); } }, {passive:true});
+  addEventListener("resize", ()=>{ place(); upd(); });
+  upd();
+}
+
+buildMini(); buildStops(); buildLines(); buildFlow(); buildMatrix(); watch();
+</script>
+</body>
+</html>

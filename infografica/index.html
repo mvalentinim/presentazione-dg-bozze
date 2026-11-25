@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TPER, la strada del dato</title>
+<meta name="description" content="Il progetto di data governance TPER sull'area vendite in una sola scena: otto domande da aprire in ordine, con le schermate della piattaforma ridisegnate.">
+<meta name="color-scheme" content="light">
+<style>
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/poppins-400-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/poppins-400-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/poppins-500-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/poppins-500-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/poppins-600-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/poppins-600-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/poppins-900-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/poppins-900-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Caveat Brush";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/caveat-brush-400-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Caveat Brush";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/caveat-brush-400-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  --board:#ffffff;
+  --board-2:#f2f3f4;
+  --ink:#1b1b1d;         /* pennarello nero */
+  --ink-2:#44464c;
+  --ink-3:#62656d;
+  --red:#ef343c;         /* rosso TPER, per il tratto */
+  --red-ink:#c61f27;     /* lo stesso rosso, più scuro, per il testo */
+  --sans:"Poppins",system-ui,sans-serif;
+  --hand:"Caveat Brush","Comic Sans MS",cursive;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{font-size:clamp(16px,.55vw + 10px,21px);color-scheme:light;scrollbar-color:var(--ink-3) var(--board-2)}
+body{margin:0;background:var(--board);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.5;font-feature-settings:"tnum" 1;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+::selection{background:var(--red);color:#fff}
+:focus-visible{outline:3px solid var(--red);outline-offset:4px;border-radius:4px}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.13;letter-spacing:-.01em;word-spacing:.14em;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+ul,ol{margin:0;padding:0;list-style:none}
+img{display:block;max-width:100%}
+
+/* ----- il tratto: lo stesso pennarello della pagina a scorrimento, più leggero ----- */
+svg.mk{overflow:visible;fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:url(#rough)}
+svg.mk.red,svg.mk .red{stroke:var(--red)}
+svg.mk.stretch path{vector-effect:non-scaling-stroke}
+svg.mk .fill{fill:var(--ink)}
+svg.mk .fillr{fill:var(--red)}
+svg.mk .paper{fill:var(--board)}
+svg.mk text{font-family:var(--hand);font-size:22px;fill:var(--ink-2);stroke:none}
+.hand{font-family:var(--hand);font-weight:400;line-height:1.05;letter-spacing:.005em}
+.fr{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.num{position:relative;flex:none;display:grid;place-items:center;width:2.4rem;height:2.4rem;font-family:var(--hand);font-size:1.5rem;line-height:1}
+.num svg{position:absolute;inset:0;width:100%;height:100%}
+.num b{position:relative;font-weight:400;transform:translateY(-.05em)}
+.num.big{width:4.4rem;height:4.4rem;font-size:2.6rem}
+.circled{position:relative;white-space:nowrap;z-index:0;padding:.02em .06em}
+.circled svg{position:absolute;left:-5%;top:-4%;width:110%;height:110%;z-index:-1;stroke-width:5}
+
+/* ----- intestazione: nessun menu, solo la domanda e il conto delle fermate ----- */
+.hd{display:flex;align-items:center;gap:1.6rem;padding:.8rem 2rem .3rem;max-width:104rem;width:100%;margin:0 auto}
+.hd .logo{height:2.3rem;width:auto;flex:none}
+.hd h1{font-size:1.75rem;flex:1 1 auto;max-width:44rem}
+.hd .how{margin-left:auto;text-align:right;font-size:1.4rem;color:var(--red-ink);rotate:-2deg;flex:none}
+.dots{display:flex;gap:.25rem;flex:none}
+.dots svg{display:block;width:1.15rem;height:1.15rem;stroke-width:5}
+.dots li.on svg{fill:var(--red)}
+
+/* ----- la scena ----- */
+.scene{flex:1;display:flex;flex-direction:column;justify-content:center;padding:2.6rem 2rem 2.6rem;max-width:104rem;width:100%;margin:0 auto;position:relative}
+.cols{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));column-gap:1rem}
+.lots{position:relative;grid-template-rows:auto auto 5rem auto}
+.lot{position:relative;display:grid;grid-template-rows:subgrid;grid-row:1 / span 4;grid-column:var(--c)}
+.lot>*{grid-column:1}
+.stage{display:block;grid-row:1;padding:0 .4rem .3rem 0}
+.stage b{display:block;font-weight:900;font-size:1.25rem;line-height:1.1;letter-spacing:-.01em;word-spacing:.14em}
+.stage i{display:block;font-style:normal;font-family:var(--hand);font-size:1.3rem;line-height:1.05;color:var(--red-ink);margin-top:.1rem}
+.lot svg.dw{display:block;grid-row:2;align-self:end;width:100%;height:auto;transition:translate .35s var(--ease)}
+.lot:hover svg.dw,.lot:focus-visible svg.dw{translate:0 -5px}
+.tile{position:relative;display:block;grid-row:4;padding:1.2rem .5rem .5rem;min-height:4.7rem;text-align:center}
+.tile .num{position:absolute;top:-1.05rem;left:50%;translate:-50% 0;width:2.1rem;height:2.1rem;font-size:1.35rem}
+.tile .num>svg{fill:var(--board)}
+.tile svg.str{position:absolute;left:50%;top:-1.75rem;width:.6rem;height:.8rem;translate:-50% 0;stroke-width:6}
+.tile .fr{stroke-width:2.5;transition:stroke .2s var(--ease)}
+.lot:hover .tile .fr,.lot:focus-visible .tile .fr,.strip:hover>.fr,.strip:focus-visible>.fr,.is-next .tile .fr,.strip.is-next>.fr{stroke:var(--red)}
+.qq{display:block;font-weight:600;font-size:1rem;line-height:1.25}
+.done{grid-row:4;justify-self:end;align-self:start;margin:-1.1rem -.35rem 0 0;z-index:1;width:2.2rem;height:2.2rem;opacity:0;scale:.4;rotate:-20deg;transition:opacity .4s var(--ease),scale .6s var(--ease),rotate .6s var(--ease)}
+.done svg{width:100%;height:100%;stroke-width:6}
+.seen .done{opacity:1;scale:1;rotate:0deg}
+.strip .done{position:absolute;top:auto;bottom:-1rem;right:.5rem;margin:0}
+.nx{display:none;position:absolute;left:1.6rem;bottom:calc(100% + .45rem);align-items:flex-start;gap:.2rem;font-size:1.3rem;color:var(--red-ink);white-space:nowrap;rotate:-3deg;z-index:2;pointer-events:none}
+.nx svg{width:1.5rem;height:1.5rem;stroke-width:3.5;translate:0 .3rem}
+.is-next .nx{display:flex}
+.strip .nx{bottom:auto;top:calc(100% - .1rem);left:1.2rem;align-items:flex-end;rotate:2deg}
+.strip .nx svg{translate:0 -.5rem}
+
+/* la strada: il marciapiede in nero, la mezzeria che scorre, il bordo rosso */
+.road{position:relative;grid-column:1 / -1;grid-row:3;align-self:start;height:3.3rem;pointer-events:none}
+.road svg.ln{position:absolute;left:0;width:100%;height:1rem}
+.road svg.top{top:-.5rem}
+.road svg.dash{top:50%;margin-top:-.5rem;opacity:.55}
+.road svg.bot{bottom:-.5rem}
+.sbus{position:absolute;bottom:.5rem;left:-9%;width:4.6rem}
+.sbus svg{display:block;width:100%;height:auto;stroke-width:6}
+
+.along{margin-top:.7rem;align-items:center}
+.along .lbl{grid-column:1 / span 2;font-size:1.4rem;color:var(--ink-2);rotate:-2deg;padding-right:.6rem}
+.strip{position:relative;display:grid;grid-template-columns:auto auto 1fr;gap:.75rem;align-items:center;padding:.5rem 1rem .5rem .8rem;transition:translate .35s var(--ease)}
+.strip:hover,.strip:focus-visible{translate:0 -4px}
+.strip>.fr{stroke-width:2.5;transition:stroke .2s var(--ease)}
+.strip.s7{grid-column:3 / span 2}
+.strip.s8{grid-column:5 / span 3}
+.strip svg.ppl{display:block;height:3.5rem;width:auto}
+
+/* ----- la tavola: l'edificio si apre ----- */
+.plate{position:fixed;inset:0;z-index:20;background:var(--board);overflow:auto;visibility:hidden;clip-path:circle(0 at var(--ox,50%) var(--oy,50%));transition:clip-path .75s var(--ease),visibility 0s .75s}
+.plate.open{visibility:visible;clip-path:circle(150% at var(--ox,50%) var(--oy,50%));transition:clip-path .75s var(--ease),visibility 0s}
+.pl{min-height:100%;display:grid;grid-template-columns:minmax(0,.5fr) minmax(0,1fr);column-gap:2.2rem;row-gap:1rem;align-items:start;align-content:center;padding:1.4rem 2.2rem 1.2rem;max-width:104rem;margin:0 auto;position:relative}
+.pl-top{display:flex;align-items:flex-end;gap:1.1rem}
+.pl-top svg.dw{height:7rem;width:auto;stroke-width:3.5}
+.pl-top svg.dw text,.pl-top svg.dw .lb,.mini7 text,.mini7 .lb{display:none}
+.pl-top svg.ppl{height:4.4rem;width:auto}
+.pl-txt h2{font-size:1.75rem;margin-top:1rem}
+.pl-txt h2:focus{outline:none}
+.pl-txt .ans{font-weight:600;font-size:1.125rem;line-height:1.45;margin-top:.9rem;max-width:30rem}
+.who{position:relative;display:inline-grid;margin-top:1.2rem;padding:.55rem 1rem .6rem;max-width:30rem}
+.who .fr{stroke:var(--red);stroke-width:2.5}
+.who b{font-family:var(--hand);font-weight:400;font-size:1.4rem;line-height:1;color:var(--red-ink)}
+.who span{font-size:.9375rem;font-weight:600;line-height:1.4;margin-top:.15rem}
+.pl-nav{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.nb{position:relative;display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 1.1rem;font-weight:600;font-size:1rem}
+.nb .fr{stroke-width:3}
+.nb svg.ar{width:1.4rem;height:1.4rem;stroke-width:3.5;transition:translate .3s var(--ease)}
+.nb:hover{color:var(--red-ink)}
+.nb.fw:hover svg.ar{translate:4px 0}
+.nb.bk:hover svg.ar{translate:-4px 0}
+.nb:disabled{color:var(--ink-3)}
+.nb:disabled svg{opacity:.4}
+.orig{margin-top:1.3rem;font-size:.875rem;color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:.22em}
+.orig:hover{color:var(--red-ink)}
+.x{position:absolute;right:1.6rem;top:1.1rem;display:flex;align-items:center;gap:.5rem;font-family:var(--hand);font-size:1.4rem;color:var(--ink-2);z-index:3}
+.x svg{width:1.5rem;height:1.5rem;stroke-width:4}
+.x:hover{color:var(--red-ink)}
+
+/* la schermata ridisegnata */
+.fig{position:relative;padding:1.5rem 1.4rem 1.4rem;margin-top:2.5rem}
+.fig>.fr{stroke-width:3}
+.cap{position:absolute;left:1.4rem;top:-1.05rem;z-index:1;background:var(--board);padding:0 .6rem;font-size:1.3rem;color:var(--ink-2);rotate:-1.5deg}
+.a{opacity:0;translate:0 12px;transition:opacity .5s var(--ease),translate .7s var(--ease);transition-delay:calc(var(--i,0) * 90ms + .3s)}
+.plate.open .a{opacity:1;translate:0 0}
+.bx{position:relative;padding:.9rem 1.1rem 1rem}
+.bx>.fr{stroke-width:2.5}
+.bx.dsh>.fr path{stroke-dasharray:8 9}
+.bx h3{font-size:1.25rem}
+.sub{font-size:.9375rem;color:var(--ink-2);line-height:1.4}
+.tech{font-size:.8125rem;color:var(--ink-3)}
+.note{font-family:var(--hand);font-size:1.4rem;line-height:1.1;color:var(--red-ink)}
+.tagc{position:relative;display:inline-block;padding:.1rem .7rem .15rem;font-family:var(--hand);font-size:1.3rem;line-height:1.2;white-space:nowrap}
+.tagc .fr{stroke-width:2}
+.stamp{position:relative;display:inline-block;padding:.15rem .8rem .2rem;font-family:var(--hand);font-size:1.3rem;line-height:1.15;color:var(--red-ink);rotate:-3deg}
+.stamp .fr{stroke:var(--red);stroke-width:2.5}
+.stamp:nth-child(even){rotate:2.5deg}
+.bar{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:.2rem .5rem;padding:0 0 .7rem;margin-bottom:1rem;font-size:.875rem;line-height:1.3;color:var(--ink-2)}
+.bar .rd{font-size:1.3rem;line-height:1;color:var(--red-ink);margin-right:.4rem}
+.bar svg.sep{width:.5rem;height:.8rem;stroke-width:5;flex:none}
+.bar b{font-weight:600;color:var(--ink)}
+.bar svg.ul{position:absolute;left:0;bottom:0;width:100%;height:.5rem;stroke-width:2}
+.num b svg.ck{position:static;display:block;width:1.05em;height:.9em;stroke-width:9}
+
+.t1{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:1.4rem;align-items:start}
+.six{display:grid;gap:.45rem;margin-top:.7rem}
+.six li{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:center;font-weight:600;font-size:1rem;line-height:1.3}
+.six .num{width:2rem;height:2rem;font-size:1.3rem}
+.d17{display:flex;flex-wrap:wrap;gap:.3rem;margin:.8rem 0 .5rem}
+.d17 svg{width:1.35rem;height:1.35rem;stroke-width:5}
+.d17 svg.on{fill:var(--red)}
+.mini{font-size:.9375rem;color:var(--ink-2);line-height:1.5;margin-top:.3rem}
+.mini li{padding-left:1.3rem;position:relative}
+.mini li svg{position:absolute;left:0;top:.42em;width:.9rem;height:.6rem;stroke-width:4}
+
+.t2{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:1.4rem;align-items:start}
+.l7{display:grid;gap:.05rem;margin-top:.3rem}
+.l7 .rw{display:grid;grid-template-columns:minmax(0,8.6rem) 1fr;align-items:center;column-gap:.6rem;min-height:1.95rem}
+.l7 .nm{font-size:.875rem;font-weight:600;line-height:1.2}
+.l7 .rw.v .nm{font-weight:900;color:var(--red-ink)}
+.l7 .trk{position:relative;height:1.6rem}
+.l7 .trk svg.sg{position:absolute;top:50%;height:.9rem;translate:0 -50%}
+.l7 .trk svg.nd{position:absolute;top:50%;width:1.05rem;height:1.05rem;translate:-50% -50%;stroke-width:5}
+svg.nd.full{fill:var(--ink)}
+svg.nd.full.red{fill:var(--red)}
+svg.nd.open{fill:var(--board)}
+.l7 .hd4{display:grid;grid-template-columns:minmax(0,8.6rem) 1fr;column-gap:.6rem;height:1.5rem}
+.l7 .hd4 div{position:relative}
+.l7 .hd4 div span{position:absolute;top:0;translate:-50% 0;font-family:var(--hand);font-size:1.3rem;line-height:1;color:var(--ink-2)}
+.leg{font-family:var(--hand);font-size:1.15rem;line-height:1.2;color:var(--ink-2);margin-top:.5rem}
+.leg b{font-weight:400;color:var(--red-ink)}
+.crates{display:grid;gap:.5rem;margin-top:.7rem}
+.crates li{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:center}
+.crates svg.cr{width:1.9rem;height:1.6rem;stroke-width:3}
+.crates span{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .6rem}
+.crates b{font-weight:600;font-size:.9375rem;line-height:1.25}
+
+.t3{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.1rem 1.3rem;align-items:start}
+.t3 .notes{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.desc{font-size:.9375rem;line-height:1.5;margin-top:.6rem;color:var(--ink-2)}
+.stamps{display:flex;flex-wrap:wrap;gap:.6rem .7rem;margin-top:.9rem}
+.colz{display:grid;gap:.55rem;margin-top:.6rem}
+.colz li{display:grid;grid-template-columns:minmax(0,6.2rem) 1fr;gap:.7rem;align-items:start;font-size:.9375rem;line-height:1.4}
+.colz b{font-weight:600}
+.colz span{color:var(--ink-2)}
+
+.t4{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 4.6rem minmax(0,1fr);gap:.4rem;align-items:center}
+.t4 svg.conn{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;stroke-width:2.5}
+.t4 svg.conn path{stroke-dasharray:7 7}
+.t4 .flowar{visibility:hidden}
+.codes{display:grid;gap:.4rem}
+.codes li{position:relative;padding:.3rem .8rem .35rem;font-size:.875rem;line-height:1.3;color:var(--ink-2)}
+.codes li b{font-family:var(--hand);font-weight:400;font-size:1.3rem;color:var(--ink);margin-right:.4rem}
+.codes .fr{stroke-width:2}
+.flowar{display:grid;place-items:center}
+.flowar svg{width:100%;height:2.4rem;stroke-width:4}
+.bins{display:grid;gap:.5rem}
+.bins li{position:relative;padding:.45rem .9rem .5rem;font-weight:600;font-size:1rem;line-height:1.3}
+.bins .fr{stroke:var(--red);stroke-width:2.5}
+.t4f{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin-top:.9rem}
+.t4f svg.ar{width:2rem;height:1.1rem;stroke-width:4;flex:none}
+
+.t5{display:grid;grid-template-columns:minmax(0,1fr) 3rem minmax(0,1.15fr) 3rem minmax(0,.8fr);align-items:center;gap:.3rem}
+.srcs{display:grid;gap:.5rem}
+.srcs .bx{padding:.45rem .8rem .5rem}
+.srcs b{display:block;font-weight:600;font-size:.9375rem;line-height:1.25}
+.gold h3{font-size:1.5rem}
+.meas{display:flex;flex-wrap:wrap;gap:.4rem .5rem;margin-top:.6rem}
+.strata{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;align-items:start;margin-top:1.2rem}
+.strata .note{grid-column:1 / -1}
+.strata svg.ar{width:1.8rem;height:1.1rem;stroke-width:4;margin-top:.25rem}
+.strata b{display:block;font-weight:900;font-size:1.125rem;word-spacing:.14em}
+.strata span{display:block;font-size:.9375rem;color:var(--ink-2);line-height:1.4}
+
+.t6{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:1.4rem;align-items:start}
+.terms{display:flex;flex-wrap:wrap;gap:.25rem .8rem;margin-top:.7rem}
+.terms span{font-family:var(--hand);font-size:1.15rem;line-height:1.15;color:var(--ink-2)}
+.terms span.on{color:var(--red-ink)}
+.terms .circled svg{left:-14%;top:-18%;width:128%;height:136%;stroke-width:3.5}
+.defn{font-size:1.0625rem;font-weight:500;line-height:1.45;margin-top:.5rem}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:.25rem .8rem;font-size:.9375rem;line-height:1.4;margin-top:.8rem}
+.kv dt{color:var(--ink-2)}
+.kv dd{margin:0;font-weight:600}
+
+.t7{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1.2rem 1.4rem;align-items:start}
+.days{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.3rem;margin-top:.7rem;text-align:center}
+.days b{display:block;font-family:var(--hand);font-weight:400;font-size:1.5rem;line-height:1}
+.days small{display:block;font-size:.8125rem;color:var(--ink-2);line-height:1.2}
+.days .tks{display:grid;justify-items:center;gap:.05rem;margin-top:.3rem}
+.days .tks svg{width:1.3rem;height:1.1rem;stroke-width:6}
+.states{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .3rem;margin-top:.7rem}
+.states svg.ar{width:1.3rem;height:.9rem;stroke-width:4;flex:none}
+.states .tagc{font-size:1.15rem;padding:.1rem .5rem .15rem}
+.states .brk{flex-basis:100%;height:0}
+.case{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1fr) 2.6rem minmax(0,1fr) 2.6rem minmax(0,1fr);align-items:center;gap:.3rem}
+.case .bx{padding:.55rem .9rem .6rem;font-size:.9375rem;line-height:1.4}
+.case .bx b{display:block;font-weight:600;font-size:1rem;line-height:1.3}
+.case svg.ar{width:100%;height:1.6rem;stroke-width:4}
+
+.t8{display:grid;gap:1.1rem}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.trio li{display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start}
+.trio svg{height:5.2rem;width:auto}
+.trio b{display:block;font-weight:900;font-size:1.0625rem;line-height:1.2;word-spacing:.14em}
+.trio span{display:block;font-size:.9375rem;color:var(--ink-2);line-height:1.4;margin-top:.2rem}
+.mx{width:100%;border-collapse:collapse}
+.mx th,.mx td{padding:.3rem .2rem;text-align:center;vertical-align:middle}
+.mx thead .num{width:1.9rem;height:1.9rem;font-size:1.3rem;margin:0 auto}
+.mx tbody th{text-align:left;font-weight:600;font-size:.9375rem;line-height:1.25;padding-right:.8rem}
+.mx td svg{width:1.6rem;height:1.4rem;stroke-width:6}
+.mx tbody tr>*{border-top:0}
+
+.t9{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:1.4rem;align-items:start}
+.t9>.bx{grid-column:2;grid-row:1 / span 2}
+.mini7{position:relative;grid-column:1;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.3rem;padding-bottom:.5rem;align-self:end}
+.mini7 span{position:relative;display:block}
+.mini7 svg.dw{display:block;width:100%;height:auto;stroke-width:5}
+.mini7 span>svg:last-child{position:absolute;right:-.1rem;top:-.5rem;width:1.1rem;height:.95rem;stroke-width:9}
+.mini7 svg.ln{position:absolute;left:0;bottom:0;width:100%;height:.6rem}
+.t9 .big{font-weight:900;font-size:1.5rem;line-height:1.25;word-spacing:.14em}
+.know{display:grid;gap:.45rem;margin-top:.9rem}
+.know li{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:center;font-weight:600;font-size:1rem;line-height:1.3}
+.know svg{width:1.5rem;height:1.3rem;stroke-width:6}
+
+/* ingrandimento della schermata originale */
+.zoom{position:fixed;inset:0;z-index:40;background:rgba(255,255,255,.97);display:grid;place-items:center;padding:2rem;opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility 0s .25s}
+.zoom.open{opacity:1;visibility:visible;transition:opacity .25s var(--ease),visibility 0s}
+.zoom figure{margin:0;max-width:min(80rem,100%)}
+.zoom .zf{position:relative;display:inline-block;padding:.8rem;max-width:100%}
+.zoom .zf .fr{stroke-width:3}
+.zoom img{max-height:calc(100vh - 9rem)}
+.zoom figcaption{margin-top:.8rem;text-align:center;color:var(--ink-2);font-size:.9375rem}
+.zoom .x{top:1rem;right:1.4rem}
+
+/* ----- piccoli movimenti che vivono da soli ----- */
+@keyframes drive{from{left:-9%}to{left:103%}}
+@keyframes bob{from{translate:0 0}to{translate:0 -2px}}
+@keyframes spin{to{rotate:360deg}}
+@keyframes march{to{stroke-dashoffset:-30}}
+@keyframes fog{from{translate:-7px 0}to{translate:7px 0}}
+@keyframes grow{0%,100%{scale:1 1}50%{scale:1 .55}}
+@keyframes lift{0%,62%,100%{rotate:0deg}72%,90%{rotate:-22deg}}
+@keyframes sweep{from{rotate:-10deg}to{rotate:12deg}}
+@keyframes hop{0%,70%,100%{translate:0 0}80%{translate:0 6px}90%{translate:0 2px}}
+@keyframes sway{from{rotate:-3deg}to{rotate:3deg}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes retrace{0%,82%{clip-path:inset(-40% -4% -40% -4%)}83%{clip-path:inset(-40% 104% -40% -4%)}100%{clip-path:inset(-40% -4% -40% -4%)}}
+@keyframes tickin{0%,8%{opacity:0;scale:.3}16%,100%{opacity:1;scale:1}}
+@keyframes drop{0%,20%{translate:0 -14px;opacity:0}45%,85%{translate:0 0;opacity:1}100%{translate:0 0;opacity:0}}
+@keyframes flow4{to{stroke-dashoffset:-14}}
+@keyframes slide{0%{translate:-120% 0;opacity:0}15%{opacity:1}85%{opacity:1}100%{translate:120% 0;opacity:0}}
+.sbus{animation:drive 26s linear infinite}
+.sbus svg{animation:bob .5s ease-in-out infinite alternate}
+.sbus .wh,.sbus .hub{transform-box:fill-box;transform-origin:center;animation:spin 1.2s linear infinite}
+.road svg.dash path{animation:march 1.7s linear infinite}
+.t4 svg.conn path{animation:flow4 1.2s linear infinite}
+.dw .fogc{animation:fog 5.5s ease-in-out infinite alternate}
+.dw .fogc.b{animation-duration:7s;animation-direction:alternate-reverse}
+.dw .bar{transform-box:fill-box;transform-origin:50% 100%;animation:grow 5s ease-in-out infinite}
+.dw .bar.b2{animation-delay:-1.2s}.dw .bar.b3{animation-delay:-2.6s}.dw .bar.b4{animation-delay:-3.7s}
+.dw .gate{transform-box:fill-box;transform-origin:0 100%;animation:lift 7s var(--ease) infinite}
+.dw .tk{animation:drop 3.6s var(--ease) infinite}
+.dw .stp{animation:tickin 7s var(--ease) infinite both}
+.dw .crt{animation:blink 4.5s ease-in-out infinite}
+.dw .crt.c2{animation-delay:-1.5s}.dw .crt.c3{animation-delay:-3s}
+.dw .chart{animation:retrace 8s var(--ease) 1s infinite}
+.dw .flag{transform-box:fill-box;transform-origin:0 50%;animation:sway 3.2s ease-in-out infinite alternate}
+.ppl .lens{transform-box:fill-box;transform-origin:0 100%;animation:sweep 2.6s ease-in-out infinite alternate}
+.ppl .crd{animation:bob 1.6s ease-in-out infinite alternate}
+.ppl .crd.c2{animation-delay:-.5s}.ppl .crd.c3{animation-delay:-1s}
+.nx svg{animation:hop 2.4s ease-in-out infinite}
+.hd .circled svg{animation:retrace 11s var(--ease) 4s infinite}
+.days .tks svg{animation:tickin 9s var(--ease) infinite both}
+.flowar svg,.case svg.ar{animation:hop 3s ease-in-out infinite;rotate:0deg}
+.t5 .pk{position:relative;overflow:hidden;height:2.4rem}
+.t5 .pk svg.ar{position:absolute;left:0;top:50%;width:100%;height:1.6rem;translate:0 -50%;stroke-width:4}
+.t5 .pk i{position:absolute;left:35%;top:50%;width:.8rem;height:.8rem;margin-top:-.4rem;animation:slide 3.4s linear infinite}
+.t5 .pk i svg{display:block;width:100%;height:100%;stroke-width:6}
+.trio svg .crd{animation:bob 1.8s ease-in-out infinite alternate}
+html.still .sbus{left:47%}
+html.still *,html.still *::before,html.still *::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+
+@media (max-width:1200px){
+  .stage b{font-size:1.0625rem}
+  .hd h1{font-size:1.5rem}
+}
+@media (max-width:1000px){
+  .hd{flex-wrap:wrap;gap:.6rem 1rem;padding:.8rem 1rem .4rem}
+  .hd h1{font-size:1.5rem;flex-basis:100%;order:3}
+  .hd .how{font-size:1.3rem}
+  .scene{padding:.6rem 1rem 1.4rem;justify-content:flex-start}
+  .cols{grid-template-columns:1fr;row-gap:1.3rem}
+  .lots{grid-template-rows:none}
+  .lot{grid-template-rows:auto auto;grid-template-columns:6.5rem 1fr;grid-row:auto;grid-column:1;column-gap:1rem;align-items:center}
+  .lot svg.dw{grid-column:1;grid-row:1 / span 2;align-self:center}
+  .stage{grid-column:2;grid-row:1;padding-bottom:0}
+  .tile{grid-column:2;grid-row:2;display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:center;min-height:3.4rem;padding:.5rem .6rem;text-align:left}
+  .tile .num{position:relative;top:auto;left:auto;translate:none}
+  .tile svg.str{display:none}
+  .done{position:absolute;top:-.4rem;right:0;margin:0}
+  .strip .done{top:auto;bottom:-.8rem}
+  .nx,.strip .nx{left:auto;right:.7rem;top:auto;bottom:-.75rem;rotate:-2deg;font-size:1.15rem;background:var(--board);padding:0 .35rem}
+  .nx svg{display:none}
+  .road{display:none}
+  .along{margin-top:1.3rem}
+  .along .lbl,.strip.s7,.strip.s8{grid-column:1}
+  .pl{grid-template-columns:minmax(0,1fr);padding:3.4rem 1rem 1.4rem}
+  .mxw{overflow-x:auto}
+  .who{display:grid}
+  .t8{grid-template-columns:minmax(0,1fr)}
+  .pl-txt h2{font-size:1.6rem}
+  .fig{padding:2.4rem 1rem 2.8rem;margin-top:1.4rem}
+  .t1,.t2,.t3,.t6,.t7,.t9{grid-template-columns:minmax(0,1fr)}
+  .t9>.bx,.mini7{grid-column:1;grid-row:auto}
+  .t4{grid-template-columns:minmax(0,1fr)}
+  .t4 svg.conn{display:none}
+  .t4 .flowar{visibility:visible}
+  .flowar svg{rotate:90deg;height:2rem;width:3rem}
+  .t5{grid-template-columns:1fr}
+  .t5 .pk{height:1.6rem}
+  .case{grid-template-columns:1fr}
+  .case svg.ar{rotate:90deg;width:2.4rem;justify-self:center}
+  .strata,.trio{grid-template-columns:minmax(0,1fr)}
+  .strata svg.ar{rotate:90deg;margin:0 0 0 .2rem}
+  .cap{position:static;display:block;padding:0;margin:0 0 .6rem}
+  .mx tbody th{font-size:.8125rem;padding-right:.3rem}
+  .mx thead .num{width:1.5rem;height:1.5rem;font-size:1.05rem}
+  .mx td svg{width:1.2rem;height:1.05rem}
+  .x span{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .sbus{left:47%}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="rough" x="-6%" y="-20%" width="112%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency=".03" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="hd" id="hd">
+  <img class="logo" src="img/tper-logo.png" alt="TPER, cambia il movimento" width="640" height="232">
+  <h1>Come facciamo dei nostri dati un <span class="circled">asset affidabile<svg class="mk red stretch" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path d="M14 56 C6 24 68 7 150 8 C232 9 297 26 290 55 C284 84 214 96 140 93 C68 90 12 80 13 50 C14 34 34 22 58 16"/></svg></span>, su cui basare le decisioni?</h1>
+  <p class="how hand" id="how" aria-live="polite">otto domande: aprile in ordine</p>
+  <ol class="dots" id="dots" aria-label="Avanzamento"></ol>
+</header>
+
+<main class="scene" id="scene">
+  <div class="cols lots" id="lots">
+    <div class="road" aria-hidden="true">
+      <svg class="mk stretch ln top" viewBox="0 0 1200 20" preserveAspectRatio="none"><path stroke-width="2.5" d="M0 10 C200 8 420 12 640 10 C860 8 1040 12 1200 10"/></svg>
+      <svg class="mk stretch ln dash" viewBox="0 0 1200 20" preserveAspectRatio="none"><path stroke-width="2.5" stroke-dasharray="14 16" d="M0 10 C200 8 420 12 640 10 C860 8 1040 12 1200 10"/></svg>
+      <svg class="mk red stretch ln bot" viewBox="0 0 1200 20" preserveAspectRatio="none"><path stroke-width="4.5" d="M0 10 C200 6 420 14 640 9 C860 5 1040 13 1200 9"/></svg>
+      <div class="sbus">
+      <svg class="mk" viewBox="0 0 380 170">
+        <path class="paper" d="M24 128 C21 92 22 58 30 42 C36 30 62 27 122 26 L302 24 C330 24 344 36 348 64 L352 128 C352 137 345 139 334 139 L44 140 C30 140 25 137 24 128"/>
+        <path d="M54 48 L112 47 L113 86 L53 87 Z"/><path d="M128 47 L188 46 L189 86 L128 87 Z"/><path d="M204 46 L264 46 L264 86 L204 86 Z"/><path d="M282 46 L322 48 C330 56 334 72 334 88 L283 87 Z"/>
+        <path class="red" stroke-width="8" d="M27 108 C120 104 244 109 350 105"/>
+        <path class="wh fill" d="M70 142 C68 126 80 116 94 116 C110 116 120 128 118 144 C116 158 106 166 93 165 C80 164 71 155 70 142"/><path class="hub paper" stroke="none" d="M90 136 C96 134 100 140 96 145 C92 148 87 144 90 136"/>
+        <path class="wh fill" d="M250 142 C248 126 260 116 274 116 C290 116 300 128 298 144 C296 158 286 166 273 165 C260 164 251 155 250 142"/><path class="hub paper" stroke="none" d="M270 136 C276 134 280 140 276 145 C272 148 267 144 270 136"/>
+      </svg>
+    </div>
+    </div>
+  </div>
+  <div class="cols along" id="along"></div>
+</main>
+
+<section class="plate" id="plate" role="dialog" aria-modal="true" aria-labelledby="pl-q" inert></section>
+
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Schermata originale" inert>
+  <button class="x" id="z-close" aria-label="Chiudi la schermata originale"><span>chiudi</span><svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8 C16 16 25 25 33 33"/><path d="M33 7 C24 16 15 25 7 33"/></svg></button>
+  <figure><span class="zf" id="zf"><svg class="mk stretch fr" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path d="M4 7 C96 3 204 8 296 5"/><path d="M295 3 C297 66 295 134 296 197"/><path d="M298 195 C198 198 100 194 3 196"/><path d="M5 198 C3 132 5 66 4 3"/></svg></span><figcaption id="z-cap"></figcaption></figure>
+</div>
+
+<script>
+/* aiuti per catture e stampa: ?fermo ferma i movimenti */
+const STILL = /[?&]fermo/.test(location.search);
+if(STILL) document.documentElement.classList.add("still");
+
+/* ---------- segni a pennarello ---------- */
+const FR = `<svg class="mk stretch fr" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path d="M4 7 C96 3 204 8 296 5"/><path d="M295 3 C297 66 295 134 296 197"/><path d="M298 195 C198 198 100 194 3 196"/><path d="M5 198 C3 132 5 66 4 3"/></svg>`;
+const RING = `<svg class="mk red" viewBox="0 0 100 100" aria-hidden="true"><path stroke-width="6" d="M54 8 C26 5 8 27 9 52 C10 78 30 93 54 92 C78 91 93 72 92 48 C91 24 72 8 46 9 C39 9 33 11 28 15"/></svg>`;
+const num = (n, cls="") => `<span class="num ${cls}">${RING}<b>${n}</b></span>`;
+const TICK = `<svg class="mk red" viewBox="0 0 76 64" aria-hidden="true"><path d="M7 34 C14 40 20 49 25 58 C34 34 50 15 70 6"/></svg>`;
+const AR = cls => `<svg class="mk red ar ${cls||""}" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 16 C18 13 34 18 52 15"/><path d="M40 5 C45 9 50 12 54 15 C50 19 45 22 41 26"/></svg>`;
+const ARB = `<svg class="mk red ar" viewBox="0 0 60 30" aria-hidden="true"><path d="M56 16 C42 13 26 18 8 15"/><path d="M20 5 C15 9 10 12 6 15 C10 19 15 22 19 26"/></svg>`;
+const ARD = `<svg class="mk red" viewBox="0 0 50 50" aria-hidden="true"><path d="M40 6 C34 18 26 30 14 40"/><path d="M8 24 C9 30 10 36 11 42 C17 42 23 41 29 40"/></svg>`;
+const ARU = `<svg class="mk red" viewBox="0 0 50 50" aria-hidden="true"><path d="M40 44 C34 32 26 20 14 10"/><path d="M8 26 C9 20 10 14 11 8 C17 8 23 9 29 10"/></svg>`;
+const DASH = `<svg class="mk red" viewBox="0 0 20 10" aria-hidden="true"><path d="M2 6 C7 3 13 8 18 4"/></svg>`;
+const node = (cls, st="") => `<svg class="mk nd ${cls}" style="${st}" viewBox="0 0 100 100" aria-hidden="true"><path d="M52 10 C26 8 10 28 11 52 C12 76 30 91 54 90 C76 89 91 72 90 48 C89 26 72 10 46 11"/></svg>`;
+const seg = (cls, st, w, dash="") => `<svg class="mk stretch sg ${cls}" style="${st}" viewBox="0 0 1000 20" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="${w}"${dash?` stroke-dasharray="${dash}"`:""} d="M0 10 C250 6 520 14 760 9 C860 7 940 12 1000 10"/></svg>`;
+const bx = (inner, cls="", i=0) => `<div class="bx a ${cls}" style="--i:${i}">${FR}${inner}</div>`;
+const tagc = (t, rot=0) => `<span class="tagc" style="rotate:${rot}deg">${FR}${t}</span>`;
+const stamp = t => `<span class="stamp">${FR}${t}</span>`;
+/* una figura: testa, corpo, gambe; extra = ciò che tiene in mano */
+const man = (x, extra="") => `<g transform="translate(${x} 0)"><path class="paper" d="M30 8 C20 8 16 18 18 26 C20 34 28 38 34 36 C42 34 44 24 42 18 C40 10 34 8 28 9"/><path d="M30 38 L30 74"/><path d="M30 74 L19 104"/><path d="M30 74 L41 104"/>${extra}</g>`;
+const el = (t, cls, html) => { const e=document.createElement(t); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+const esc = s => s.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+const $ = id => document.getElementById(id);
+
+/* ---------- i disegni degli edifici: ogni cosa ha il suo cartellino ---------- */
+const sm = (x, y, extra="") => `<g transform="translate(${x} ${y}) scale(.5)" stroke-width="6">${man(0, extra)}</g>`;
+const DRAW = {
+ 1:`<path d="M70 226 L70 28"/><g class="flag"><path class="red paper" stroke-width="3.5" d="M70 38 L150 35 L180 62 L150 90 L70 86 Z"/><text x="80" y="59">dati</text><text x="80" y="80">affidabili</text></g><path class="paper" d="M70 106 L160 104 L176 122 L160 140 L70 138 Z"/><text x="78" y="130">2026-2028</text>${sm(16,174,`<path d="M30 50 L56 30"/>`)}`,
+ 2:`<path class="fogc" stroke-dasharray="2 9" d="M6 30 C26 16 48 36 68 24 C90 10 112 32 134 20 C154 10 172 28 194 18"/><path class="fogc b" stroke-dasharray="2 9" d="M10 50 C30 36 50 58 70 44 C90 30 110 56 130 42 C150 30 170 52 192 40"/><path class="fogc" stroke-dasharray="2 9" d="M4 70 C24 58 46 76 66 64 C88 52 110 74 132 62 C152 52 172 70 196 60"/><text x="14" y="92">biglietti</text><path class="red lb" stroke-width="2" d="M44 95 C47 99 41 102 43 106"/><path class="paper" d="M18 106 L18 226 L66 226 L66 106 Z"/><path d="M26 116 L58 116 L58 142 L26 142 Z"/><path d="M32 160 L52 160"/><path class="red tk" stroke-width="3.5" d="M35 168 L49 168 L49 186 L35 186 Z"/><text x="76" y="120">validazioni</text><path class="red lb" stroke-width="2" d="M106 123 C109 127 103 130 106 134"/><path d="M106 226 L106 176"/><path class="paper" d="M88 134 L124 134 L124 176 L88 176 Z"/><path class="red crt" d="M96 152 C100 146 112 146 116 152"/><path class="red crt c2" d="M100 162 C103 159 109 159 112 162"/><text x="140" y="150">portale</text><path class="red lb" stroke-width="2" d="M166 153 C169 157 163 160 166 164"/><path d="M144 196 L144 164 L188 164 L188 196"/><path d="M136 198 L196 198 L190 210 L142 210 Z"/><path d="M146 210 L146 226"/><path d="M186 210 L186 226"/>`,
+ 3:`<path d="M8 78 L100 26 L192 78"/><text x="100" y="70" text-anchor="middle">arrivi</text><path d="M22 76 L22 226"/><path d="M178 76 L178 226"/><path d="M30 124 L170 124"/><path d="M30 176 L170 176"/><path d="M38 96 L66 96 L66 124 L38 124 Z"/><path d="M76 96 L104 96 L104 124 L76 124 Z"/><path d="M114 96 L142 96 L142 124 L114 124 Z"/><path d="M58 148 L86 148 L86 176 L58 176 Z"/><path d="M96 148 L124 148 L124 176 L96 176 Z"/><path d="M134 148 L162 148 L162 176 L134 176 Z"/><path d="M34 198 L62 198 L62 226 L34 226 Z"/><path d="M70 198 L98 198 L98 226 L70 226 Z"/><path class="red crt" stroke-width="4" d="M44 110 L60 110"/><path class="red crt c2" stroke-width="4" d="M82 110 L98 110"/><path class="red crt c3" stroke-width="4" d="M120 110 L136 110"/><path class="red crt c2" stroke-width="4" d="M64 162 L80 162"/><path class="red crt" stroke-width="4" d="M102 162 L118 162"/><path class="red crt c3" stroke-width="4" d="M140 162 L156 162"/><path class="red crt c3" stroke-width="4" d="M40 212 L56 212"/><path class="red crt" stroke-width="4" d="M76 212 L92 212"/>${sm(128,174,`<path d="M30 50 L46 58"/><path class="paper" d="M42 46 L62 46 L62 70 L42 70 Z"/>`)}`,
+ 4:`<path class="paper" d="M12 36 L188 36 L188 72 L12 72 Z"/><text x="24" y="61">controlli</text><path class="red stp" stroke-width="5" d="M146 54 C150 58 153 62 155 66 C160 56 166 48 176 42"/><path d="M22 72 L22 226"/><path d="M44 72 L44 226"/><path d="M156 72 L156 226"/><path d="M178 72 L178 226"/><path class="gate red" stroke-width="5" d="M46 168 L152 160"/><path d="M58 198 L86 198 L86 226 L58 226 Z"/><path class="red crt" stroke-width="4" d="M64 212 L80 212"/>${sm(104,174,`<path d="M30 50 L46 58"/><path class="paper" d="M42 46 L62 46 L62 70 L42 70 Z"/><path class="red" d="M47 58 L51 63 L58 52"/>`)}`,
+ 5:`<path class="paper" d="M12 30 L188 30 L188 62 L12 62 Z"/><text x="100" y="53" text-anchor="middle">numeri</text><path d="M24 62 L24 226"/><path d="M176 62 L176 226"/><path d="M24 146 L176 146"/><path d="M44 76 L156 76 L156 134 L44 134 Z"/><path class="red bar" stroke-width="9" d="M66 126 L66 106"/><path class="red bar b2" stroke-width="9" d="M90 126 L90 92"/><path class="red bar b3" stroke-width="9" d="M114 126 L114 100"/><path class="red bar b4" stroke-width="9" d="M138 126 L138 84"/><path d="M88 182 L62 166"/><path d="M88 194 L62 208"/><path d="M112 182 L138 166"/><path d="M112 194 L138 208"/><path class="red paper" stroke-width="4" d="M86 174 L114 174 L114 202 L86 202 Z"/><path class="paper" d="M54 154 a9 9 0 1 0 .1 0"/><path class="paper" d="M54 202 a9 9 0 1 0 .1 0"/><path class="paper" d="M146 154 a9 9 0 1 0 .1 0"/><path class="paper" d="M146 202 a9 9 0 1 0 .1 0"/>`,
+ 6:`<path d="M8 74 L100 24 L192 74"/><text x="100" y="66" text-anchor="middle">decisioni</text><path d="M22 72 L22 226"/><path d="M178 72 L178 226"/><path d="M72 88 L162 88 L162 142 L72 142 Z"/><path class="red chart" stroke-width="4" d="M82 132 C96 122 106 128 118 112 C128 100 140 108 152 96"/><path d="M34 92 L58 92 L58 132 L34 132 Z"/><path d="M41 92 L41 132"/><text x="26" y="160">glossario</text><path class="red lb" stroke-width="2" d="M46 145 C49 141 43 137 46 132"/><path class="paper" d="M68 170 a11 11 0 1 0 .1 0"/><path class="paper" d="M100 166 a11 11 0 1 0 .1 0"/><path class="paper" d="M132 170 a11 11 0 1 0 .1 0"/><path d="M38 200 L162 200"/><path d="M50 200 L50 226"/><path d="M150 200 L150 226"/>`,
+ 9:`<path d="M112 226 L112 108"/><path class="red paper" stroke-width="4" d="M114 18 C86 16 68 36 69 62 C70 88 90 106 114 105 C138 104 156 86 155 60 C154 36 136 18 110 19"/><path class="red" stroke-width="6" d="M92 62 C98 68 103 76 106 84 C114 64 124 50 138 42"/><path class="paper" d="M76 124 L150 122 L150 152 L76 154 Z"/><text x="86" y="145">vendite</text>${sm(22,174,`<path d="M30 50 L52 28"/><path class="red flag" stroke-width="5" d="M52 28 L52 6 L74 14 L52 20"/>`)}`
+};
+const PPL7 = `<svg class="mk ppl" viewBox="0 0 96 110" aria-hidden="true">${man(8, `<path d="M30 50 L14 62"/><path d="M30 50 L50 44"/><g class="lens"><path class="paper red" stroke-width="4" d="M62 22 C52 22 48 30 50 38 C52 46 62 48 68 44 C74 40 74 30 70 26 C68 23 64 22 60 22"/><path class="red" stroke-width="4" d="M52 44 L46 52"/></g>`)}</svg>`;
+const card = (x, c) => `<path d="M30 50 L16 58"/><path d="M30 50 L44 58"/><path class="paper crd ${c}" d="M14 54 L46 54 L46 74 L14 74 Z"/>`;
+const PPL8 = `<svg class="mk ppl" viewBox="0 0 176 110" aria-hidden="true">${man(0, card(0,""))}${man(56, card(0,"c2"))}${man(112, card(0,"c3"))}</svg>`;
+
+/* ---------- contenuti: le stesse otto domande, con i dati veri della piattaforma ---------- */
+const LAST = 8;
+const ROLE = {
+  cdm: ["Comitato guida Data Move", "presidia la Strategia e ne segue gli indicatori"],
+  bdo: ["Business Data Owner", "risponde del significato del dato"],
+  dto: ["Data Technology Owner", "risponde della piattaforma"],
+  dgl: ["Data Governance Lead", "presidia il metodo su tutti i domini"]
+};
+const DOMAINS = [["Vendite / Commerciale / Call Center",3,true],["Manutenzione / Impianti / Sosta",2],["Esercizio",1],["Amministrazione",1],["Direzione / Staff",1],["HR",1],["Servizi di integrazione",1]];
+const TERMS = ["Accertamento","Agente","Ammenda","Annullamento in autotutela","Apparato","Atto giudiziario","Bacino","Blacklist tessere","Blochetto","Blue List","Booking","Boost","Cedola","Cliente","Conducente","Distanza percorsa","EMV","Gamma tariffaria","Iscrizione a ruolo","Lista bianca","Ordine","Pagamento","Profilo utente","ProntoBus","Reclamo","Reporting Center","Ricorso","STIMER","Titolo di viaggio","Trasgressore","Validazione","Veicolo condiviso","Vendita","Verbale","Verbalizzante","Verifica Tessera","Violazione","Voucher"];
+
+const CK = `<svg class="mk red ck" viewBox="0 0 76 64" aria-hidden="true"><path d="M7 34 C14 40 20 49 25 58 C34 34 50 15 70 6"/></svg>`;
+const bar = c => `<div class="bar a" style="--i:0"><span class="rd hand">sulla piattaforma, ridisegnato:</span>${c.map((s,i)=>(i?`<svg class="mk red sep" viewBox="0 0 20 30" aria-hidden="true"><path d="M5 5 C9 9 13 12 15 15 C12 19 9 22 5 26"/></svg>`:"")+(i===c.length-1?`<b>${s}</b>`:`<span>${s}</span>`)).join("")}<svg class="mk stretch ul" viewBox="0 0 1000 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 C250 7 520 13 760 9 C860 8 940 12 1000 10"/></svg></div>`;
+function lines7(){
+  const pos = [10,33,56,79];
+  return `<div class="l7"><div class="hd4"><span></span><div>${pos.map((x,i)=>`<span style="left:${x}%">${i+1}</span>`).join("")}</div></div>` + DOMAINS.map(([n,reach,part])=>{
+    let t = "";
+    for(let s=0;s<3;s++){
+      const st = `left:${pos[s]}%;width:23%`;
+      if(s+1<reach) t += seg(part?"red":"", st, part?5:3.5);
+      else if(part && s+1===reach) t += seg("red go", st, 4, "10 12");
+      else t += seg("", st+";opacity:.4", 2.5);
+    }
+    for(let s=0;s<4;s++) t += node((s<reach?"full ":"open ")+(part?"red":""), `left:${pos[s]}%`+(s<reach||(part&&s===reach)?"":";opacity:.5"));
+    return `<div class="rw${part?" v":""}"><span class="nm">${n}</span><span class="trk">${t}</span></div>`;
+  }).join("") + `</div><p class="leg"><b>1</b> inventariato, <b>2</b> analizzato, <b>3</b> sulla piattaforma, <b>4</b> nei report</p>`;
+}
+
+const FIG = {
+ 1: () => `<div class="t1">
+    ${bx(`<h3>Le sei priorità della Strategia</h3><ol class="six">${["Decidere meglio, con dati affidabili","Garantire la continuità del servizio","Processi e reportistica più efficienti","Una cultura interna del dato","Meno applicativi dispersi","Conformità alle norme"].map((t,i)=>`<li>${num(i+1)}<span>${t}</span></li>`).join("")}</ol>`,"",0)}
+    ${bx(`<h3>17 indicatori, seguiti ogni trimestre</h3><div class="d17">${Array.from({length:17},(_,i)=>node([0,1,2,6].includes(i)?"red on":"")).join("")}</div><p class="note">quattro aspettano questo progetto</p><ul class="mini">${["accessi alle dashboard","dati aggiornati entro i tempi","controlli di qualità attivi","report prodotti in automatico"].map(t=>`<li>${DASH}${t}</li>`).join("")}</ul>`,"",1)}
+  </div>`,
+ 2: c => `${bar(c.crumb)}<div class="t2">
+    ${bx(`<h3>I sette domini informativi</h3><p class="sub">fin dove è arrivato ciascuno</p>${lines7()}`,"",1)}
+    ${bx(`<h3>Dove arrivano i dati delle vendite</h3><p class="sub">uno spazio per ogni sistema: è il livello bronze</p><ul class="crates">${[["Bigliettazione AEP","bronze-aep"],["Portale clienti Solweb","solweb"],["Sanzioni Hermes","bronze-hermes"],["Sharing Corrente","bronze-corrente"],["Contabilità Telemaco","bronze-telemaco"],["Contapasseggeri","bronze-contapasseggeri"]].map(([a,c])=>`<li><svg class="mk cr" viewBox="0 0 40 34" aria-hidden="true"><path d="M5 9 L35 8 L35 29 L5 30 Z"/><path class="red" stroke-width="4" d="M12 19 L28 19"/></svg><span><b>${a}</b><i class="tech" style="font-style:normal">${c}</i></span></li>`).join("")}</ul><p class="note" style="margin-top:.7rem">in grigio, il nome che ha sulla piattaforma</p>`,"",2)}
+  </div>`,
+ 3: c => `${bar(c.crumb)}<div class="t3">
+    ${bx(`<h3>Vendite TPER</h3><p class="tech">sulla piattaforma: bronze-aep.aep_salesext</p><p class="desc">«La tabella contiene le vendite di titoli di viaggio e abbonamenti TPER registrate nel sistema di bigliettazione AEP. Le informazioni descrivono i prodotti commercializzati, gli importi, i canali distributivi e le condizioni di vendita.»</p><div class="stamps">${["certificata","criticità: importante","sensibilità: riservata","contiene dati personali"].map(stamp).join("")}</div>`,"",1)}
+    ${bx(`<h3>Colonna per colonna</h3><ul class="colz">${[["Identificativo","identificativo della vendita nel sistema centrale AEP","Id"],["Importo","importo dell'operazione di vendita","Amount"],["Numero tessera","numero del supporto su cui è caricato il titolo di viaggio","CardNumber"]].map(([a,b,c])=>`<li><span><b>${a}</b><br><span class="tech">${c}</span></span><span>${b}</span></li>`).join("")}</ul>`,"",2)}
+    <div class="notes a" style="--i:3"><p class="note">scritta in italiano da chi conosce il dato</p><p class="note">quattro etichette di governo su ogni tabella</p><p class="note">21 tabelle e 1.355 colonne descritte così</p></div>
+  </div>`,
+ 4: c => `${bar(c.crumb)}<div class="t4">
+    <ul class="codes a" style="--i:0">${[["31","Titolo Urbano Bologna EMV"],["1006","Titolo EMV extraurbano a zone"],["3560","Bigl. Urbano Bologna"],["2277","Bigl. Extraurbano a zone"],["6","Borsellino elettronico"],["2101","Annuale Bologna giovani"],["2085","Mensile a zone TPER"]].map(([c,d])=>`<li>${FR}<b>${c}</b>${d}</li>`).join("")}</ul>
+    <div class="flowar a" style="--i:1">${AR()}</div>
+    <ul class="bins a" style="--i:2">${["Corsa semplice con carta","Corsa semplice con biglietto","Borsellino elettronico","Abbonamenti annuali","Abbonamenti mensili"].map(t=>`<li>${FR}${t}</li>`).join("")}</ul>
+    <div class="t4f a" style="--i:3"><span class="sub">i codici dei sistemi, come arrivano</span>${AR()}<span class="sub">le categorie che legge chi apre un report</span></div>
+    <div class="t4f a" style="--i:4"><span class="note">224 codici di titolo, 2.468 coppie codice-descrizione</span><span style="display:flex;gap:.7rem;flex:none">${stamp("nasce proposta")}${stamp("vale se approvata")}</span></div>
+    <svg class="mk red conn a" id="conn" style="--i:2" aria-hidden="true"></svg>
+  </div>`,
+ 5: c => `${bar(c.crumb)}<div class="t5">
+    <div class="srcs">${[["Vendite TPER","livello silver, controllate"],["Vendite Marconi Express","livello silver, controllate"],["Anagrafica dei titoli","famiglia e bacino"],["Anagrafica dei canali","dove si vende"]].map(([a,b],i)=>bx(`<b>${a}</b><span class="tech">${b}</span>`,"",i)).join("")}</div>
+    <div class="pk a" style="--i:4">${AR()}<i>${node("full red")}</i></div>
+    ${bx(`<h3>Vendite, livello gold</h3><p class="sub">per giorno, canale, titolo e azienda</p><div class="meas">${[tagc("venduto lordo",-2),tagc("venduto netto",1.5),tagc("storni",-1)].join("")}</div>`,"gold",5)}
+    <div class="pk a" style="--i:6">${AR()}<i>${node("full red")}</i></div>
+    ${bx(`<b style="font-weight:600;font-size:1rem;line-height:1.25;display:block">Report commerciale</b><p class="note">in corso</p>`,"dsh",7)}
+    <div class="strata a" style="--i:8"><p class="note">i tre livelli, in ordine</p>${[["Bronze","il dato com'è arrivato, intoccato"],["Silver","solo ciò che ha superato i controlli"],["Gold","la forma che serve a chi decide"]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join(AR())}</div>
+  </div>`,
+ 6: c => `${bar(c.crumb)}<div class="t6">
+    ${bx(`<h3>38 termini pubblicati</h3><p class="sub">il glossario dell'area vendite</p><div class="terms">${TERMS.map(t=>t==="Validazione"?`<span class="on circled">${t}<svg class="mk red stretch" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true"><path d="M14 56 C6 24 68 7 150 8 C232 9 297 26 290 55 C284 84 214 96 140 93 C68 90 12 80 13 50 C14 34 34 22 58 16"/></svg></span>`:`<span>${t}</span>`).join("")}</div>`,"",0)}
+    <div>
+    ${bx(`<h3>Validazione</h3><p class="defn">Utilizzo effettivo di un titolo di viaggio, con informazioni sul servizio quali linea, zona e veicolo.</p><dl class="kv"><dt>nasce in</dt><dd>bigliettazione AEP</dd><dt>ha un proprietario</dt><dd>sì, e una definizione approvata</dd><dt>tabella collegata</dt><dd>non ancora: la scheda lo dice</dd></dl>`,"",1)}
+    <p class="note a" style="--i:2;margin-top:1rem">«corsa»: programmata o effettuata? Una sola risposta, per tutti i report.</p>
+    </div>
+  </div>`,
+ 7: c => `${bar(c.crumb)}<div class="t7">
+    ${bx(`<h3>Ogni giorno, una misurazione</h3><p class="sub">cinque esecuzioni al giorno, tutte riuscite</p><div class="days">${["20","21","22","23","24"].map((d,i)=>`<div><b>${d}</b><small>nov</small><span class="tks">${Array.from({length:5},(_,k)=>TICK.replace('<svg ',`<svg style="animation-delay:${(i*5+k)*.18}s" `)).join("")}</span></div>`).join("")}</div>`,"",0)}
+    ${bx(`<h3>Se una regola fallisce, si apre un caso</h3><p class="sub">con un responsabile, fino alla chiusura</p><div class="states">${tagc("aperto",-2)}${AR()}${tagc("in lavorazione",1)}${AR()}${tagc("chiuso",-1)}<span class="brk"></span><span class="sub">oppure</span>${tagc("accettato",2)}<span class="sub">dal proprietario</span></div><p class="note" style="margin-top:.8rem">il motore è stato collaudato il 18 e 19 novembre</p>`,"",1)}
+    <div class="case a" style="--i:2">
+      <div class="bx">${FR}<b>911 conducenti senza data di patente</b>sembrano dati incompleti</div>${AR()}
+      <div class="bx">${FR}<b>Non è un errore</b>sono utenti che usano solo le e-bike</div>${AR()}
+      <div class="bx">${FR}<b>Diventa una regola</b>confermata dal proprietario del dato</div>
+    </div>
+  </div>`,
+ 8: c => `${bar(c.crumb)}<div class="t8">
+    <ul class="trio a" style="--i:0">${[["dto","Data Technology Owner","risponde della piattaforma e dei flussi"],["bdo","Business Data Owner","uno per dominio: risponde del significato, approva termini e categorie"],["dgl","Data Governance Lead","presidia il metodo su tutti i domini"]].map(([k,a,b])=>`<li><svg class="mk" viewBox="0 0 60 110" aria-hidden="true">${man(0, card(0,""))}</svg><span><b>${a}</b><span>${b}</span></span></li>`).join("")}</ul>
+    ${bx(`<div class="mxw"><table class="mx"><caption style="position:absolute;left:-999em">Quale funzione presidia ciascuna domanda</caption><thead><tr><th scope="col"><span style="position:absolute;left:-999em">Funzione</span></th>${Q.slice(0,LAST).map(c=>`<th scope="col">${num(c.id)}</th>`).join("")}</tr></thead><tbody>${Object.entries(ROLE).map(([k,[n]])=>`<tr><th scope="row">${n}</th>${Q.slice(0,LAST).map(c=>`<td>${c.roles.includes(k)?TICK+'<span style="position:absolute;left:-999em">sì</span>':""}</td>`).join("")}</tr>`).join("")}</tbody></table></div><p class="note" style="margin-top:.5rem">funzioni e non nomi: la Policy è in validazione</p>`,"",1)}
+  </div>`,
+ 9: () => `<div class="t9">
+    <div class="a" style="--i:0"><p class="big">Per l'area vendite, oggi sappiamo rispondere.</p><ul class="know">${["quali dati abbiamo e che cosa significano","chi ne risponde","come li controlliamo","da dove arriva ogni numero"].map(t=>`<li>${TICK}<span>${t}</span></li>`).join("")}</ul><p class="note" style="margin-top:1rem">l'ultimo tratto, il report commerciale, è in corso</p></div>
+    <div class="mini7 a" style="--i:2">${[1,2,3,4,5,6,9].map(k=>`<span><svg class="mk dw" viewBox="0 0 200 230" aria-hidden="true">${DRAW[k]}</svg>${TICK}</span>`).join("")}<svg class="mk red stretch ln" viewBox="0 0 1200 20" preserveAspectRatio="none" aria-hidden="true"><path stroke-width="4" d="M0 10 C200 6 420 14 640 9 C860 5 1040 13 1200 9"/></svg></div>
+    ${bx(`<h3>Il percorso si ripete</h3><p class="sub">Manutenzione è già analizzata, gli altri cinque domini sono inventariati</p>${lines7()}`,"",1)}
+  </div>`
+};
+
+const Q = [
+ {id:1, st:"La direzione", gl:"lo chiede la Strategia ICT", qq:"Dove vogliamo andare?", q:"Dove vogliamo andare, con i dati, nei prossimi tre anni?", a:"La Strategia ICT 2026-2028 lo ha scritto: una funzione di data governance, sei priorità, diciassette indicatori e un comitato che li segue.", roles:["cdm"], cap:"dalla Strategia ICT"},
+ {id:2, crumb:["Catalogo dei dati","Area vendite"], st:"Sorgenti", gl:"i sistemi, ancora nella nebbia", qq:"Che cosa abbiamo?", q:"Che cosa abbiamo, in sistemi e in dati?", a:"Sette domini informativi; due analizzati a fondo con chi li usa. Sei sistemi dell'area vendite arrivano oggi sulla piattaforma.", roles:["dgl","bdo"], orig:["catalogo-albero.jpg","L'albero del catalogo sulla piattaforma, com'è."]},
+ {id:3, crumb:["Catalogo dei dati","Bigliettazione AEP, livello bronze","Vendite TPER"], st:"Bronze", gl:"il magazzino degli arrivi", qq:"Dove sono i dati, e che cosa dicono?", q:"Dove sono i nostri dati, e che cosa vuol dire ogni tabella?", a:"In un catalogo unico: ogni tabella e ogni colonna hanno una descrizione in italiano e quattro etichette di governo.", roles:["bdo","dto"], orig:["tabella-vendite.jpg","La scheda della tabella delle vendite sulla piattaforma, com'è."]},
+ {id:4, crumb:["Catalogo dei dati","Tabelle di riferimento","Codici e categorie"], st:"Silver", gl:"il cancello dei controlli", qq:"Categorie nostre, o dei sistemi?", q:"I filtri dei report usano le nostre categorie, o quelle dei sistemi?", a:"Le nostre. I codici dei sistemi sono raggruppati in categorie leggibili, dentro il flusso e non in un foglio a parte.", roles:["bdo","dgl"], orig:["reference.jpg","La tabella di riferimento dei codici sulla piattaforma, com'è."]},
+ {id:5, crumb:["Catalogo dei dati","Vendite, livello gold","Da dove viene il dato"], st:"Gold", gl:"la sala dei numeri", qq:"Da dove viene un numero per decidere?", q:"Quando serve un numero per decidere, da dove lo prendiamo?", a:"Dall'ultimo livello, il gold. E di ogni numero si può risalire all'origine, passo per passo.", roles:["dto"], orig:["lineage.jpg","La tracciabilità della tabella delle vendite sulla piattaforma, com'è."]},
+ {id:6, crumb:["Glossario","Area vendite","Validazione"], st:"Report", gl:"la sala riunioni", qq:"La stessa parola, la stessa cosa?", q:"Quando due report usano la stessa parola, intendono la stessa cosa?", a:"Sì, se la parola è nel glossario: 38 termini pubblicati, ciascuno con una definizione approvata.", roles:["bdo","dgl"], orig:["glossario-termine.jpg","La scheda del termine Validazione sulla piattaforma, com'è."]},
+ {id:7, crumb:["Controlli di qualità","La misurazione di ogni giorno"], st:"Lungo tutta la strada", gl:"chi controlla il dato", qq:"Come ci accorgiamo di un'anomalia, e chi la risolve?", q:"Come ci accorgiamo di un'anomalia, e chi la risolve?", a:"Un motore controlla ogni carico con regole concordate. Se una regola bloccante fallisce, il carico si ferma e si apre un caso.", roles:["dgl","bdo","dto"], orig:["profiling.jpg","Le esecuzioni della misurazione quotidiana sulla piattaforma, com'è."]},
+ {id:8, crumb:["Catalogo dei dati","Chi è il proprietario"], st:"Lungo tutta la strada", gl:"chi risponde del dato", qq:"Chi risponde dei dati?", q:"Chi risponde dei dati?", a:"Tre funzioni, attribuite a figure già presenti in azienda. Ogni tabella, ogni termine e ogni caso hanno un proprietario.", roles:["dto","bdo","dgl"], orig:["tabelle-owner.jpg","La colonna del proprietario sulla piattaforma, con i nomi oscurati."]},
+ {id:9, st:"Capolinea", gl:"fine del primo viaggio", qq:"Che cosa sappiamo oggi?", q:"Capolinea: che cosa sappiamo oggi?", a:"Il viaggio è fatto per l'area vendite, e la strada è tracciata per gli altri domini.", roles:[], cap:"il punto di arrivo"}
+];
+
+
+/* ---------- la scena ---------- */
+let seen = new Set();
+try { seen = new Set(JSON.parse(sessionStorage.getItem("tper-viste")||"[]")); } catch(e){}
+const save = () => { try { sessionStorage.setItem("tper-viste", JSON.stringify([...seen])); } catch(e){} };
+
+function build(){
+  const lots = $("lots"), along = $("along");
+  [1,2,3,4,5,6,9].forEach(id=>{
+    const c = Q[id-1];
+    const b = el("button","lot"); b.type = "button"; b.dataset.q = id; b.style.setProperty("--c", lots.querySelectorAll(".lot").length + 1);
+    b.innerHTML = `<span class="nx hand">${ARD}<span class="nxt"></span></span>
+      <span class="stage"><b>${c.st}</b><i>${c.gl}</i></span>
+      <svg class="mk dw" viewBox="0 0 200 230" aria-hidden="true">${DRAW[id]}</svg>
+      <span class="tile">${FR}<svg class="mk red str" viewBox="0 0 20 26" aria-hidden="true"><path d="M10 1 C7 9 13 16 10 25"/></svg>${id===9 ? `<span class="num">${RING}<b>${CK}</b></span>` : num(id)}<span class="qq">${c.qq}</span></span>
+      <span class="done">${TICK}</span><span class="vh">. Apri la tavola<span class="st"></span></span>`;
+    lots.appendChild(b);
+  });
+  along.innerHTML = `<span class="lbl hand">due domande accompagnano il dato per tutta la strada</span>`;
+  [[7,PPL7,"s7"],[8,PPL8,"s8"]].forEach(([id,ppl,cls])=>{
+    const c = Q[id-1];
+    const b = el("button","strip "+cls); b.type = "button"; b.dataset.q = id;
+    b.innerHTML = `${FR}<span class="nx hand">${ARU}<span class="nxt"></span></span>${ppl}${num(id)}<span class="qq">${c.qq}</span><span class="done">${TICK}</span><span class="vh">. Apri la tavola<span class="st"></span></span>`;
+    along.appendChild(b);
+  });
+  $("dots").innerHTML = Array.from({length:LAST},(_,i)=>`<li data-d="${i+1}">${node("red")}<span class="vh">Domanda ${i+1}<span class="st"></span></span></li>`).join("");
+  mark();
+}
+function mark(){
+  let next = 0;
+  for(let i=1;i<=LAST;i++) if(!seen.has(i)){ next = i; break; }
+  if(!next) next = 9;
+  document.querySelectorAll("[data-q]").forEach(b=>{
+    const id = +b.dataset.q;
+    b.classList.toggle("seen", seen.has(id));
+    const s = b.querySelector(".st"); if(s) s.textContent = seen.has(id) ? ", già aperta" : "";
+    b.classList.toggle("is-next", id===next && !seen.has(9));
+    const t = b.querySelector(".nxt"); if(t) t.textContent = seen.size===0 ? "comincia da qui" : (id===9 ? "e adesso il capolinea" : "poi questa");
+  });
+  document.querySelectorAll("#dots li").forEach(li=>{ const on = seen.has(+li.dataset.d); li.classList.toggle("on", on); li.querySelector(".st").textContent = on ? ", aperta" : ", da aprire"; });
+  const n = [...seen].filter(i=>i<=LAST).length;
+  $("how").textContent = n===0 ? "otto domande: aprile in ordine" : (n<LAST ? `${n} di ${LAST} aperte` : "tutte aperte: resta il capolinea");
+}
+
+/* tavola 4: un tratto da ogni codice alla sua categoria */
+const MAP4 = [0,0,1,1,2,3,4];
+function connect(){
+  const s = $("conn"); if(!s) return;
+  const box = s.parentElement.getBoundingClientRect();
+  const cs = [...s.parentElement.querySelectorAll(".codes li")], bs = [...s.parentElement.querySelectorAll(".bins li")];
+  if(!box.width || !cs.length) return;
+  s.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`);
+  s.innerHTML = cs.map((c,i)=>{
+    const a = c.getBoundingClientRect(), b = bs[MAP4[i]].getBoundingClientRect();
+    const x1 = a.right - box.left + 4, y1 = a.top + a.height/2 - box.top, x2 = b.left - box.left - 5, y2 = b.top + b.height/2 - box.top + (i%2 ? 4 : -4), m = (x1+x2)/2;
+    return `<path d="M${x1} ${y1} C${m} ${y1} ${m} ${y2} ${x2} ${y2}"/>`;
+  }).join("");
+}
+addEventListener("resize", connect);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(connect);
+
+/* ---------- la tavola ---------- */
+let cur = null, opener = null;
+function render(id){
+  const c = Q[id-1];
+  const roles = c.roles.map(r=>ROLE[r][0]).join(c.roles.length>2 ? ", " : " e ");
+  const prev = id>1 ? id-1 : null, next = id<9 ? id+1 : null;
+  $("plate").innerHTML = `<div class="pl">
+    <button class="x" id="pl-close" type="button" aria-label="Torna alla scena"><span>torna alla scena</span><svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 8 C16 16 25 25 33 33"/><path d="M33 7 C24 16 15 25 7 33"/></svg></button>
+    <aside class="pl-txt">
+      <div class="pl-top">${id===9 ? `<span class="num big">${RING}<b>${CK}</b></span>` : num(id,"big")}${id===7 ? PPL7 : id===8 ? PPL8 : `<svg class="mk dw" viewBox="0 0 200 230" aria-hidden="true">${DRAW[id]}</svg>`}</div>
+      <h2 id="pl-q" tabindex="-1">${c.q}</h2>
+      <p class="ans">${c.a}</p>
+      ${c.roles.length ? `<p class="who">${FR}<b>ne ${c.roles.length>1?"rispondono":"risponde"}</b><span>${roles}</span></p>` : ""}
+      <div class="pl-nav">
+        ${prev ? `<button class="nb bk" type="button" data-go="${prev}">${FR}${ARB}Domanda ${prev}</button>` : `<button class="nb bk" type="button" data-home>${FR}${ARB}Alla scena</button>`}
+        ${next ? `<button class="nb fw" type="button" data-go="${next}">${FR}${next===9?"Capolinea":"Domanda "+next}${AR()}</button>` : `<button class="nb fw" type="button" data-go="1">${FR}Ricomincia dalla prima${AR()}</button>`}
+      </div>
+      ${c.orig ? `<button class="orig" type="button" data-orig="img/${c.orig[0]}" data-cap="${esc(c.orig[1])}">vedi la schermata originale</button>` : ""}
+    </aside>
+    <div class="fig">${FR}<span class="cap hand">${c.st}, ${c.gl}</span>${FIG[id](c)}</div>
+  </div>`;
+}
+function open(id, from){
+  const p = $("plate");
+  if(from){ const r = from.getBoundingClientRect(); p.style.setProperty("--ox", (r.left+r.width/2)+"px"); p.style.setProperty("--oy", (r.top+r.height/2)+"px"); opener = from; }
+  const was = cur!==null;
+  cur = id; render(id);
+  p.scrollTop = 0; p.inert = false; p.classList.add("open");
+  document.documentElement.style.overflow = "hidden";
+  requestAnimationFrame(connect);
+  $("hd").inert = true; $("scene").inert = true;
+  seen.add(id); save(); mark();
+  setTimeout(()=>{ const h = $("pl-q"); if(h) h.focus({preventScroll:true}); }, was ? 0 : 120);
+}
+function close(){
+  if(cur===null) return;
+  const p = $("plate"); const id = cur; cur = null;
+  p.classList.remove("open"); p.inert = true;
+  document.documentElement.style.overflow = "";
+  $("hd").inert = false; $("scene").inert = false;
+  const back = document.querySelector(`#scene [data-q="${id}"]`) || opener;
+  if(back) back.focus({preventScroll:true});
+}
+/* l'indirizzo è la sola fonte di verità: Indietro richiude la tavola */
+const parse = () => { const m = location.hash.match(/^#d([1-9])$/); return m ? +m[1] : null; };
+let pendingFrom = null;
+function apply(){ const id = parse(); if(id) open(id, pendingFrom); else close(); pendingFrom = null; }
+function go(id, from, replace){
+  const h = id ? "#d"+id : "#";
+  pendingFrom = from || null;
+  if(replace){ history.replaceState(null,"",h); apply(); }
+  else if((location.hash||"#")===h || (!id && !location.hash)) apply();
+  else location.hash = h;
+}
+addEventListener("hashchange", apply);
+
+/* ---------- la schermata originale, su richiesta ---------- */
+let zFrom = null;
+function openZoom(btn){
+  zFrom = btn;
+  let im = $("z-img");
+  if(!im){ im = document.createElement("img"); im.id = "z-img"; $("zf").prepend(im); }
+  im.src = btn.dataset.orig; im.alt = btn.dataset.cap;
+  $("z-cap").textContent = btn.dataset.cap;
+  const z = $("zoom"); z.inert = false; z.classList.add("open"); $("plate").inert = true;
+  setTimeout(()=>$("z-close").focus(), 60);
+}
+function closeZoom(){
+  const z = $("zoom"); if(!z.classList.contains("open")) return false;
+  z.classList.remove("open"); z.inert = true; $("plate").inert = false;
+  if(zFrom && zFrom.isConnected) zFrom.focus({preventScroll:true});
+  zFrom = null; return true;
+}
+
+document.addEventListener("click", e=>{
+  const o = e.target.closest("[data-orig]"); if(o){ openZoom(o); return; }
+  if(e.target.closest("#zoom")){ closeZoom(); return; }
+  if(e.target.closest("#pl-close") || e.target.closest("[data-home]")){ go(null); return; }
+  const g = e.target.closest("[data-go]"); if(g && g.dataset.go){ go(+g.dataset.go, null, true); return; }
+  const q = e.target.closest("#scene [data-q]"); if(q){ go(+q.dataset.q, q); return; }
+});
+document.addEventListener("keydown", e=>{
+  if(e.metaKey || e.ctrlKey || e.altKey) return;
+  if(e.key==="Escape"){ if(!closeZoom() && cur!==null) go(null); return; }
+  if(cur===null || $("zoom").classList.contains("open")) return;
+  if(e.key==="ArrowRight" || e.key==="PageDown"){ if(cur<9){ go(cur+1, null, true); e.preventDefault(); } }
+  else if(e.key==="ArrowLeft" || e.key==="PageUp"){ if(cur>1){ go(cur-1, null, true); e.preventDefault(); } }
+});
+
+const qv = location.search.match(/[?&]viste=([\d,]+)/);
+if(qv) seen = new Set(qv[1].split(",").map(Number));
+const qd = location.search.match(/[?&]d=([1-9])/);
+if(qd && !location.hash) history.replaceState(null, "", location.pathname + location.search + "#d" + qd[1]);
+build();
+apply();
+if(/[?&]orig/.test(location.search)){ const o = document.querySelector("[data-orig]"); if(o) openZoom(o); }
+</script>
+</body>
+</html>
